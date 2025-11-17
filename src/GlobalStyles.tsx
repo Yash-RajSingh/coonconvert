@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -10,10 +10,15 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'StackSans';
     src: url('/fonts/StackSansNotch-VariableFont_wght.ttf') format('truetype');
   }
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  }
 
   :root {
     --background-color: #eaf4ff;
     --white: #ffffff;
+    --grey: #919795;
   }
 
   * {
@@ -27,6 +32,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
+      scroll-behavior: smooth;
   }
   ::-webkit-scrollbar {
     display: none;
