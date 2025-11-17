@@ -12,9 +12,18 @@ export const HeaderWrapper = styled.div`
   max-width: 90%;
   min-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: start;
   h1 {
     font-size: 1.5rem;
     color: #333;
     font-family: "Roboto";
   }
+`;
+
+export const HeaderLogo = styled.img`
+  width: 40px;
+  height: 100%;
 `;
