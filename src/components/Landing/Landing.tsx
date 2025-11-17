@@ -7,8 +7,8 @@ import {
   LandingContentTitle,
   LandingContentTitleHighlight,
   LandingContentDescription,
-} from "./LandingElements"; 
-import HeroImage from '@assets/hero.png'
+} from "./LandingElements";
+import HeroImage from "@assets/hero.png";
 
 const Landing = () => {
   return (
@@ -16,11 +16,19 @@ const Landing = () => {
       <LandingContainer>
         <LandingWrapper>
           <LandingContent>
-            <LandingContentTitle>Your All-in-one <br />Online 
-              <LandingContentTitleHighlight> PDF Tools</LandingContentTitleHighlight>
+            <LandingContentTitle>
+              Your All-in-one <br />
+              Online
+              <LandingContentTitleHighlight>
+                {" "}
+                PDF Tools
+              </LandingContentTitleHighlight>
             </LandingContentTitle>
-            <LandingContentDescription> 
-              We build PDF tools to make your life easier. Access an east-to-use PDF solutions with all the features you need: Convert files to PDF, from PDF, merge, fill, sign and compress PDFs withing a few clicks.
+            <LandingContentDescription>
+              We build PDF tools to make your life easier. Access an east-to-use
+              PDF solutions with all the features you need: Convert files to
+              PDF, from PDF, merge, fill, sign and compress PDFs withing a few
+              clicks.
             </LandingContentDescription>
           </LandingContent>
           <LandingImageWrapper>
@@ -30,6 +38,6 @@ const Landing = () => {
       </LandingContainer>
     </>
   );
-}
+};
 
-export default Landing  
+export default Landing;

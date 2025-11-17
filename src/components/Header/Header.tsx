@@ -1,14 +1,13 @@
-import { HeaderContainer, HeaderWrapper } from './HeaderElements'
+import { HeaderContainer, HeaderWrapper } from "./HeaderElements";
 
 const Header = () => {
   return (
     <HeaderContainer>
       <HeaderWrapper>
-        <h1>SmallPDF</h1>
+        <h1>CoonConvert</h1>
       </HeaderWrapper>
     </HeaderContainer>
-  )
-}
+  );
+};
 
-export default Header
-
+export default Header;
