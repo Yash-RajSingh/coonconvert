@@ -7,7 +7,7 @@ import {
 } from "./ToolsCardElements";
 const ToolsCard = ({ info }: { info: any }) => {
   return (
-    <ToolsCardBody>
+    <ToolsCardBody color={info?.color}>
       <ToolsCardIcon src={info?.icon} alt={info?.name} />
       <ToolsCardContentWrapper>
         <ToolsCardTitle>{info?.name}</ToolsCardTitle>

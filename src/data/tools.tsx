@@ -17,6 +17,7 @@ export const tools = [
     description: "Convert PDF files to PNG images",
     icon: PdfToPngIcon,
     component: <PdfToPng />,
+    color: "#ffb702",
   },
   {
     id: "png-to-pdf",
@@ -24,6 +25,7 @@ export const tools = [
     description: "Convert PNG images to a PDF file",
     icon: PdfToPngIcon,
     component: <PngToPdf />,
+    color: "#ffb702",
   },
   {
     id: "compress-pdf",
@@ -31,6 +33,7 @@ export const tools = [
     description: "Compress PDF to reduce the file size and make it smaller",
     icon: CompressPdfIcon,
     component: <CompressPdf />,
+    color: "#F23030",
   },
   {
     id: "merge-pdf",
@@ -38,6 +41,7 @@ export const tools = [
     description: "Merge multiple PDF files into one PDF file",
     icon: MergePdfIcon,
     component: <MergePdf />,
+    color: "#7961f2",
   },
   {
     id: "split-pdf",
@@ -45,6 +49,7 @@ export const tools = [
     description: "Split a single PDF file into multiple PDF files",
     icon: SplitPdfIcon,
     component: <SplitPdf />,
+    color: "#7961f2",
   },
   {
     id: "edit-pdf",
@@ -52,5 +57,6 @@ export const tools = [
     description: "Edit existing text or add new text in a PDF file",
     icon: EditPdfIcon,
     component: <EditPdf />,
+    color: "#11c0c5",
   },
 ];

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ToolsCardBody = styled.div`
+export const ToolsCardBody = styled.div<{ color: string }>`
   border: 1px solid rgb(229, 231, 235);
   width: 20.5rem;
   height: 6.5rem;
@@ -14,10 +14,13 @@ export const ToolsCardBody = styled.div`
   gap: 1rem;
   align-items: start;
   cursor: pointer;
+  border-bottom-color: ${({ color }) => color};
+  border-bottom-width: 2px;
   
   &:hover {
     transform: translateY(-2px);
     transition: transform 0.1s ;
+    background-color: ${({ color }) => `${color}26`};
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   }
 `;
