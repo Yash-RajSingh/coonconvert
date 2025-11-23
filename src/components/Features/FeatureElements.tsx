@@ -18,7 +18,6 @@ export const FeatureItemBody = styled.div`
   gap: 0.5rem;
   width: 25rem;
   padding: 1rem;
-
 `;
 export const FeatureItemIcon = styled.img`
   width: 4.5rem;

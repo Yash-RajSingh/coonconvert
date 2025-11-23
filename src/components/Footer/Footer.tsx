@@ -1,4 +1,10 @@
-import { FooterContainer, FooterWrapper, FooterContent, FooterLogo, FooterTrademark } from "./FooterElements";
+import {
+  FooterContainer,
+  FooterWrapper,
+  FooterContent,
+  FooterLogo,
+  FooterTrademark,
+} from "./FooterElements";
 import Logo from "@assets/coonconvert.svg";
 const Footer = () => {
   return (
@@ -27,7 +33,7 @@ const Footer = () => {
         </FooterContent>
       </FooterWrapper>
       <FooterTrademark>
-        © 2025 CoonConvert. All rights reserved.
+        © {new Date()?.getFullYear()} CoonConvert. All rights reserved.
       </FooterTrademark>
     </FooterContainer>
   );

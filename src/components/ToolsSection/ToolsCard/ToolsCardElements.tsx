@@ -16,12 +16,14 @@ export const ToolsCardBody = styled.div<{ color: string }>`
   cursor: pointer;
   border-bottom-color: ${({ color }) => color};
   border-bottom-width: 2px;
-  
+  cursor: pointer;
   &:hover {
     transform: translateY(-2px);
-    transition: transform 0.1s ;
+    transition: transform 0.1s;
     background-color: ${({ color }) => `${color}26`};
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow:
+      rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   }
 `;
 export const ToolsCardIcon = styled.img`
@@ -44,4 +46,13 @@ export const ToolsCardDescription = styled.p`
   color: #808080;
   line-height: 20px;
   letter-spacing: 0.25px;
+`;
+
+export const ToolHeader = styled.h1`
+  font: 700 2.25rem "Roboto";
+  color: #333;
+  line-height: 2.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  margin: 2rem auto 0;
 `;

@@ -28,6 +28,7 @@ export const features = [
     id: "data-regulation-compliance",
     icon: DataRegulationComplianceIcon,
     title: "Data Regulation Compliance",
-    description: "CoonConvert is GDPR compliant, which means we’re transparent about how we store, collect, and process your personal data."
+    description:
+      "CoonConvert is GDPR compliant, which means we’re transparent about how we store, collect, and process your personal data.",
   },
 ];

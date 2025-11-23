@@ -1,7 +1,6 @@
 import styled from "styled-components";
 export const FooterContainer = styled.div`
   width: 100%;
-  height: 100%;
   padding: 1rem 2rem 0.5rem 2rem;
   margin-top: 10rem;
   background-color: var(--white);
@@ -16,7 +15,7 @@ export const FooterWrapper = styled.div`
   align-items: start;
   justify-content: space-between;
 `;
-export const FooterContent = styled.div<{ align?: string, gap?: string }>`
+export const FooterContent = styled.div<{ align?: string; gap?: string }>`
   width: 20%;
   height: 100%;
   display: flex;
@@ -30,15 +29,15 @@ export const FooterContent = styled.div<{ align?: string, gap?: string }>`
     color: #333;
     margin-bottom: 1rem;
   }
-    & span {
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--grey);
-      cursor: pointer;
-      &:hover {
-        color: #333;
-      }
+  & span {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--grey);
+    cursor: pointer;
+    &:hover {
+      color: #333;
     }
+  }
 `;
 export const FooterLogo = styled.img`
   width: 52px;
