@@ -1,9 +1,13 @@
-import Landing from "@components/Landing/Landing";
-import ToolsSection from "@components/ToolsSection/ToolsSection";
+import { lazy } from "react";
 import Layout from "@components/Layout/Layout";
-import Features from "@components/Features/Features";
+const Landing = lazy(() => import("@components/Landing/Landing"));
+const ToolsSection = lazy(
+  () => import("@components/ToolsSection/ToolsSection"),
+);
+const Features = lazy(() => import("@components/Features/Features"));
+
 const Homepage = () => {
-  return (  
+  return (
     <>
       <Layout>
         <Landing />
