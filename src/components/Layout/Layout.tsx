@@ -10,13 +10,12 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    if (document.readyState === "complete") {
-      const timer = setTimeout(() => {  
-        setIsLoading(false);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [document.readyState]);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+
+  }, []);
 
   return (
     <>
