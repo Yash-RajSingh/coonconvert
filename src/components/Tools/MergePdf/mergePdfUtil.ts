@@ -17,7 +17,7 @@ export const handleMerge = async (files: File[], setIsLoading: (isLoading: boole
     const url = URL.createObjectURL(mergedBlob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `merged-${Date.now()}.pdf`;
+    a.download = `CoonConvert-merged-${Date.now()}.pdf`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -28,6 +28,8 @@ export const handleMerge = async (files: File[], setIsLoading: (isLoading: boole
     error("Error merging PDFs. Please try again.");
     console.error(err);
   } finally {
-    setIsLoading(false);
+    setTimeout(() => {  
+      setIsLoading(false);
+    }, 300);
   }
 };

@@ -22,8 +22,13 @@ const filesSlice = createSlice({
     clearFiles: (state) => {
       state.uploadedFiles = [];
     },
+    reorderFiles: (state, action: PayloadAction<{ fromIndex: number; toIndex: number }>) => {
+      const { fromIndex, toIndex } = action.payload;
+      const [movedFile] = state.uploadedFiles.splice(fromIndex, 1);
+      state.uploadedFiles.splice(toIndex, 0, movedFile);
+    },
   },
 });
 
-export const { addFiles, removeFile, clearFiles } = filesSlice.actions;
+export const { addFiles, removeFile, clearFiles, reorderFiles } = filesSlice.actions;
 export default filesSlice.reducer;
