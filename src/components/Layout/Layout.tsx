@@ -16,7 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [document.readyState]);
 
   return (
     <>
