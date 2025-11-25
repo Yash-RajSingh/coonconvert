@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const LandingContainer = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 85vh;
+  min-height: 75vh;
 `;
 
 export const LandingWrapper = styled.div`
@@ -12,7 +12,7 @@ export const LandingWrapper = styled.div`
   display: flex;
   gap: 2rem;
   align-items: center;
-  margin-top: 8rem;
+  margin-top: 10rem;
 `;
 export const LandingContent = styled.div`
   width: 50%;
