@@ -1,5 +1,10 @@
 import { mergePDFs } from "@/utils/mergePdf";
-export const handleMerge = async (files: File[], setIsLoading: (isLoading: boolean) => void, success: (message: string) => void, error: (message: string) => void) => {
+export const handleMerge = async (
+  files: File[],
+  setIsLoading: (isLoading: boolean) => void,
+  success: (message: string) => void,
+  error: (message: string) => void,
+) => {
   if (!files || files.length < 2) {
     error("Please upload at least 2 PDF files to merge");
     return;
@@ -28,7 +33,7 @@ export const handleMerge = async (files: File[], setIsLoading: (isLoading: boole
     error("Error merging PDFs. Please try again.");
     console.error(err);
   } finally {
-    setTimeout(() => {  
+    setTimeout(() => {
       setIsLoading(false);
     }, 300);
   }

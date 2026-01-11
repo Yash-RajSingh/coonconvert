@@ -16,13 +16,19 @@ const filesSlice = createSlice({
     addFiles: (state, action: PayloadAction<File[]>) => {
       state.uploadedFiles.push(...action.payload);
     },
+    addFile: (state, action: PayloadAction<File>) => {
+      state.uploadedFiles = [action.payload];
+    },
     removeFile: (state, action: PayloadAction<number>) => {
       state.uploadedFiles.splice(action.payload, 1);
     },
     clearFiles: (state) => {
       state.uploadedFiles = [];
     },
-    reorderFiles: (state, action: PayloadAction<{ fromIndex: number; toIndex: number }>) => {
+    reorderFiles: (
+      state,
+      action: PayloadAction<{ fromIndex: number; toIndex: number }>,
+    ) => {
       const { fromIndex, toIndex } = action.payload;
       const [movedFile] = state.uploadedFiles.splice(fromIndex, 1);
       state.uploadedFiles.splice(toIndex, 0, movedFile);
@@ -30,5 +36,6 @@ const filesSlice = createSlice({
   },
 });
 
-export const { addFiles, removeFile, clearFiles, reorderFiles } = filesSlice.actions;
+export const { addFiles, removeFile, clearFiles, reorderFiles, addFile } =
+  filesSlice.actions;
 export default filesSlice.reducer;

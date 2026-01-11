@@ -8,7 +8,7 @@ const l11 = keyframes`
 export const PreloaderContainer = styled.div`
   width: calc(100vw - 2rem);
   height: calc(100vh - 2rem);
-  background-color: #3396D3;
+  background-color: #3396d3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ export const PreloaderWrapper = styled.div`
   color: #0000;
   -webkit-text-stroke: 1px #000;
   background: conic-gradient(#000 0 0) 0/0 100% no-repeat text;
-  animation: ${l11} 2s steps(8,jump-none) infinite;
+  animation: ${l11} 2s steps(8, jump-none) infinite;
   &:before {
     content: "Loading...";
   }

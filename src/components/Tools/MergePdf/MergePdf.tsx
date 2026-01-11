@@ -21,39 +21,50 @@ const MergePdf = () => {
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
 
-  const toolTheme = useMemo(() => sessionStorage.getItem("toolTheme") || undefined, []);
+  const toolTheme = useMemo(
+    () => sessionStorage.getItem("toolTheme") || undefined,
+    [],
+  );
 
   const handleDragStart = useCallback((index: number) => {
     setDraggedIndex(index);
   }, []);
 
-  const handleDragOver = useCallback((e: React.DragEvent, index: number) => {
-    e.preventDefault();
-    if (draggedIndex !== index) {
-      setDragOverIndex(index);
-    }
-  }, [draggedIndex]);
+  const handleDragOver = useCallback(
+    (e: React.DragEvent, index: number) => {
+      e.preventDefault();
+      if (draggedIndex !== index) {
+        setDragOverIndex(index);
+      }
+    },
+    [draggedIndex],
+  );
 
-  const handleDrop = useCallback((toIndex: number) => {
-    if (draggedIndex !== null && draggedIndex !== toIndex) {
-      dispatch(reorderFiles({ fromIndex: draggedIndex, toIndex }));
-    }
-    setDraggedIndex(null);
-    setDragOverIndex(null);
-  }, [draggedIndex, dispatch]);
+  const handleDrop = useCallback(
+    (toIndex: number) => {
+      if (draggedIndex !== null && draggedIndex !== toIndex) {
+        dispatch(reorderFiles({ fromIndex: draggedIndex, toIndex }));
+      }
+      setDraggedIndex(null);
+      setDragOverIndex(null);
+    },
+    [draggedIndex, dispatch],
+  );
 
   const handleDragEnd = useCallback(() => {
     setDraggedIndex(null);
     setDragOverIndex(null);
   }, []);
 
-  const handleRemoveFile = useCallback((index: number) => {
-    dispatch(removeFile(index));
-  }, [dispatch]);
+  const handleRemoveFile = useCallback(
+    (index: number) => {
+      dispatch(removeFile(index));
+    },
+    [dispatch],
+  );
 
- 
   return (
-    <>  
+    <>
       <FileUploader accept="application/pdf" multiple />
       <UploadedFilesWrapper>
         {files?.map((file, index) => (

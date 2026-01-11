@@ -7,12 +7,18 @@ import {
 } from "./ToolsCardElements";
 import toolActivate from "@/hooks/toolActivate.ts";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "@/store/hooks";
+
 const ToolsCard = ({ info }: { info: any }) => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   return (
     <ToolsCardBody
       color={info?.color}
-      onClick={() => toolActivate(info?.name, info?.id, navigate, info?.color)}
+      onClick={() =>
+        toolActivate(info?.name, info?.id, navigate, info?.color, dispatch)
+      }
     >
       <ToolsCardIcon src={info?.icon} alt={info?.name} />
       <ToolsCardContentWrapper>

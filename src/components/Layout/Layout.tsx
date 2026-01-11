@@ -2,34 +2,30 @@ import { LayoutContainer } from "./LayoutElements";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Preloader from "../Preloader/Preloader";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-    return () => clearTimeout(timer);
+  const { pathname } = useLocation();
 
-  }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
-      {isLoading ? (
-        <Preloader />
-      ) : (
+      <Suspense fallback={<Preloader />}>
         <>
           <Header />
           <LayoutContainer>{children}</LayoutContainer>
           <Footer />
         </>
-      )}
+      </Suspense>
     </>
   );
 };
-
 export default Layout;
