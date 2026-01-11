@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header.attrs({
+  id: "header-container",
+})`
   width: 100%;
   background-color: var(--white);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: 4rem;
+  position: sticky;
+  top: 0;
 `;
 
 export const HeaderWrapper = styled.div`

@@ -9,13 +9,13 @@ export const UploadedFilesWrapper = styled.div`
   padding: 1rem;
 `;
 
-export const UploadedFileCardWrapper = styled.div<{ 
-  $theme?: string; 
-  $isDragging?: boolean; 
-  $isDragOver?: boolean; 
+export const UploadedFileCardWrapper = styled.div<{
+  $theme?: string;
+  $isDragging?: boolean;
+  $isDragOver?: boolean;
 }>`
   min-width: 8rem;
-  max-width:8rem;
+  max-width: 8rem;
   min-height: 150px;
   border: 1px dashed ${(props) => props.$theme || "#000"};
   padding: 0.5rem;
@@ -27,14 +27,14 @@ export const UploadedFileCardWrapper = styled.div<{
   border-width: ${(props) => (props.$isDragOver ? "2px" : "1px")};
   border-style: ${(props) => (props.$isDragOver ? "solid" : "dashed")};
   transition: all 0.2s ease;
-  
+
   &:hover {
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
   }
 `;
 export const UploadedFileCard = styled.li<{ $theme?: string }>`
   min-width: 7rem;
-  max-width:7rem;
+  max-width: 7rem;
   min-height: calc(150px - 1rem);
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -100,12 +100,16 @@ export const CloseIcon = styled.div`
   }
 `;
 
-export const PdfOperationButton = styled.button<{ $theme?: string }>`
+export const PdfOperationButton = styled.button<{
+  $theme?: string;
+  $left?: string;
+  $marginTop?: string;
+}>`
 padding: 0.5rem 2rem;
 position: relative;
-left: 100%;
-transform: translateX(-100%);
-margin-top: 1rem;
+left: ${(props) => props.$left || "100%"};
+transform: ${(props) => (props.$left ? "none" : "translateX(-100%)")};
+margin-top: ${(props) => props.$marginTop || "1rem"};
 color: ${(props) => props.$theme || "#000"};
 font: 400 1rem "Roboto";
   background-color:white;

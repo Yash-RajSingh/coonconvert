@@ -1,5 +1,7 @@
 import styled from "styled-components";
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.div.attrs({
+  id: "footer-container",
+})`
   width: 100%;
   padding: 1rem 2rem 0.5rem 2rem;
   margin-top: 10rem;

@@ -6,12 +6,12 @@ import {
   FileUploaderLabel,
 } from "./FileUploaderElements";
 import { useAppDispatch } from "@/store/hooks";
-import { addFiles, clearFiles } from "@/store/slices/filesSlice";
+import { addFiles, clearFiles, addFile } from "@/store/slices/filesSlice";
 import useNotification from "@/hooks/useNotification";
 
 const FileUploader = ({
   accept,
-  multiple,
+  multiple = false,
 }: {
   accept: string;
   multiple: boolean;
@@ -51,7 +51,12 @@ const FileUploader = ({
       if (!multiple) {
         dispatch(clearFiles());
       }
-      dispatch(addFiles(validFiles));
+      console.log(validFiles);
+      if (!multiple) {
+        dispatch(addFile(validFiles[0]));
+      } else {
+        dispatch(addFiles(validFiles));
+      }
     }
   };
 

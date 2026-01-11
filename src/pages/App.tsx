@@ -1,18 +1,26 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyles from "@/GlobalStyles";
 import Homepage from "@pages/Homepage/Homepage";
-import MergePdfPage from "@pages/ToolsPages/MergePdfPage/MergePdfPage";
 import "notyf/notyf.min.css";
+import Preloader from "@/components/Preloader/Preloader";
+const MergePdfPage = lazy(
+  () => import("@pages/ToolsPages/MergePdfPage/MergePdfPage"),
+);
+const SplitPage = lazy(() => import("./ToolsPages/SplitPage/SplitPage"));
 
 function App() {
   return (
     <>
       <GlobalStyles />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/tools/merge-pdf" element={<MergePdfPage />} />
-        </Routes>
+        <Suspense fallback={<Preloader />}>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/tools/merge-pdf" element={<MergePdfPage />} />
+            <Route path="/tools/split-pdf" element={<SplitPage />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
   );

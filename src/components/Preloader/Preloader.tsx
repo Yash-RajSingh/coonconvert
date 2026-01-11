@@ -4,7 +4,7 @@ const Preloader = () => {
     <PreloaderContainer>
       <PreloaderWrapper />
     </PreloaderContainer>
-  )
-}
+  );
+};
 
-export default Preloader
+export default Preloader;

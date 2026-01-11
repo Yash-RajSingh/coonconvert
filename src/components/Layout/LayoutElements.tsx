@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-export const LayoutContainer = styled.div`
+export const LayoutContainer = styled.div.attrs({
+  id: "layout-container",
+})`
   max-width: 80%;
   margin: 0 auto;
-  min-height: calc(100vh - 4rem - 22rem);
 `;
