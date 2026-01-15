@@ -160,8 +160,7 @@ export const convertImagesToPdf = async (
     throw new Error("No files to convert");
   }
 
-  if (mergeIntoOne) {
-    // Create one PDF with all images
+  if (mergeIntoOne || files.length === 1) {
     const pdfDoc = await PDFDocument.create();
 
     for (const file of files) {
@@ -185,7 +184,6 @@ export const convertImagesToPdf = async (
     
     downloadFile(new Uint8Array(pdfBytes), fileName, "application/pdf");
   } else {
-    // Create individual PDFs and zip them
     const pdfFiles: Record<string, Uint8Array> = {};
 
     for (const file of files) {
