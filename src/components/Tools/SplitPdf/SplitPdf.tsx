@@ -27,7 +27,7 @@ const SplitPdf = () => {
     [],
   );
   const files = useAppSelector((state) => state?.files?.uploadedFiles);
-  const [isLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [previews, setPreviews] = useState<string[]>([]);
   const [formState, dispatch] = useSplitPdfReducer();
   const { error: showError } = useNotification(3000);
@@ -39,7 +39,6 @@ const SplitPdf = () => {
         dispatch({ type: "RESET" });
         const file = files[0];
         const images = await renderPdfPages(file);
-        console.log(file, images, files.length, isLoading);
         setPreviews(images);
         setTimeout(() => {
           document
@@ -109,9 +108,9 @@ const SplitPdf = () => {
             <PdfOperationButton
               $theme={toolTheme}
               disabled={isLoading || previews.length === 0}
-              onClick={() => splitPdf(files[0], formState, showError)}
+              onClick={()=> splitPdf(files[0], formState, showError, setIsLoading)}
             >
-              Split PDF
+              {isLoading ? "Splitting..." : "Split PDF"}
             </PdfOperationButton>
           </SplitPdfFormContainer>
         </SplitPdfUploadedFilesContainer>
