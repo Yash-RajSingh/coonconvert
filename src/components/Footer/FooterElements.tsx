@@ -1,11 +1,13 @@
 import styled from "styled-components";
 export const FooterContainer = styled.div.attrs({
   id: "footer-container",
-})`
+})<{ alignBottom: boolean }>`
   width: 100%;
   padding: 1rem 2rem 0.5rem 2rem;
   margin-top: 10rem;
   background-color: var(--white);
+  position: ${({ alignBottom }) => alignBottom ? "absolute" : "relative"};
+  bottom: ${({ alignBottom }) => alignBottom ? "0" : "auto"};
 `;
 export const FooterWrapper = styled.div`
   width: 100%;
