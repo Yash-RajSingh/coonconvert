@@ -22,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
         <>
           <Header />
           <LayoutContainer>{children}</LayoutContainer>
-          <Footer />
+          <Footer alignBottom={window.location.pathname !== "/"}/>
         </>
       </Suspense>
     </>
