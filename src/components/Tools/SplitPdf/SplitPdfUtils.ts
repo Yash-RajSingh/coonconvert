@@ -1,7 +1,7 @@
 import { getDocument } from "@/lib/pdfjs";
 import { PDFDocument } from "pdf-lib";
-import { zipSync } from "fflate";
 import type { SplitPdfFormState } from "./useSplitPdfReducer";
+import { createAndDownloadZip } from "@/utils/fileUtils";
 
 interface ParsedRange {
   start: number;
@@ -9,25 +9,6 @@ interface ParsedRange {
   originalValue: string;
   index: number;
 }
-
-/**
- * Function to download a zip file
- * @param zipData - The zip file to download
- * @param filename - The filename of the zip file
- */
-const downloadZip = (zipData: Uint8Array, filename: string) => {
-  const blob = new Blob([zipData.buffer as ArrayBuffer], {
-    type: "application/zip",
-  });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-};
 
 /**
  * Parse and validate page ranges
@@ -197,8 +178,7 @@ const handleRangeSplit = async (
     pdfFiles[`${baseName}_pages_${range.start}-${range.end}.pdf`] = pdfBytes;
   }
 
-  const zipData = zipSync(pdfFiles);
-  downloadZip(zipData, `${baseName}_ranges.zip`);
+  createAndDownloadZip(pdfFiles, `${baseName}_ranges.zip`);
 };
 
 /**
@@ -216,8 +196,7 @@ const handleAllPagesSplit = async (
     pdfFiles[`${baseName}_page_${i}.pdf`] = pdfBytes;
   }
 
-  const zipData = zipSync(pdfFiles);
-  downloadZip(zipData, `${baseName}_split.zip`);
+  createAndDownloadZip(pdfFiles, `${baseName}_split.zip`);
 };
 
 /**
@@ -258,8 +237,7 @@ const handleSelectedPagesSplit = async (
     pdfFiles[`${baseName}_page_${pageNum}.pdf`] = pdfBytes;
   }
 
-  const zipData = zipSync(pdfFiles);
-  downloadZip(zipData, `${baseName}_selected_pages.zip`);
+  createAndDownloadZip(pdfFiles, `${baseName}_selected_pages.zip`);
 };
 
 /**
@@ -267,42 +245,49 @@ const handleSelectedPagesSplit = async (
  * @param file - The pdf file to split
  * @param formState - The form state of user input
  * @param onError - Optional callback to show error notifications
+ * @param setIsLoading - Optional callback to update loading state
  */
 export const splitPdf = async (
   file: File,
   formState: SplitPdfFormState,
   onError?: (message: string) => void,
+  setIsLoading?: (loading: boolean) => void,
 ): Promise<void> => {
-  if (!file) {
-    const errorMsg = "Error reading file";
-    onError?.(errorMsg);
-    throw new Error(errorMsg);
-  }
+  setIsLoading?.(true);
+  try {
+    if (!file) {
+      const errorMsg = "Error reading file";
+      onError?.(errorMsg);
+      throw new Error(errorMsg);
+    }
 
-  const buffer = await file.arrayBuffer();
-  const pdfDoc = await PDFDocument.load(buffer);
-  const totalPages = pdfDoc.getPageCount();
-  const baseName = file.name.replace(/\.pdf$/i, "");
+    const buffer = await file.arrayBuffer();
+    const pdfDoc = await PDFDocument.load(buffer);
+    const totalPages = pdfDoc.getPageCount();
+    const baseName = file.name.replace(/\.pdf$/i, "");
 
-  if (formState.splitType === "ranges") {
-    await handleRangeSplit(
-      pdfDoc,
-      formState.ranges,
-      totalPages,
-      baseName,
-      onError,
-    );
-  } else if (formState.splitType === "pages") {
-    if (formState.extractType === "all") {
-      await handleAllPagesSplit(pdfDoc, totalPages, baseName);
-    } else {
-      await handleSelectedPagesSplit(
+    if (formState.splitType === "ranges") {
+      await handleRangeSplit(
         pdfDoc,
-        formState.inputValue,
+        formState.ranges,
         totalPages,
         baseName,
         onError,
       );
+    } else if (formState.splitType === "pages") {
+      if (formState.extractType === "all") {
+        await handleAllPagesSplit(pdfDoc, totalPages, baseName);
+      } else {
+        await handleSelectedPagesSplit(
+          pdfDoc,
+          formState.inputValue,
+          totalPages,
+          baseName,
+          onError,
+        );
+      }
     }
+  } finally {
+    setIsLoading?.(false);
   }
 };

@@ -8,6 +8,7 @@ const MergePdfPage = lazy(
   () => import("@pages/ToolsPages/MergePdfPage/MergePdfPage"),
 );
 const SplitPage = lazy(() => import("./ToolsPages/SplitPage/SplitPage"));
+const PngToPdfPage = lazy(() => import("./ToolsPages/PngToPdfPage/PngToPdfPage"));
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/tools/merge-pdf" element={<MergePdfPage />} />
             <Route path="/tools/split-pdf" element={<SplitPage />} />
+            <Route path="/tools/png-to-pdf" element={<PngToPdfPage />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
