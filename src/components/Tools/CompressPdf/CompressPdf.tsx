@@ -1,5 +1,7 @@
+import ComingSoon from "@/components/ComingSoon/ComingSoon";
+
 const CompressPdf = () => {
-  return <div>CompressPdf</div>;
+  return <><ComingSoon /> </>;
 };
 
 export default CompressPdf;

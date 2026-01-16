@@ -9,6 +9,9 @@ const MergePdfPage = lazy(
 );
 const SplitPage = lazy(() => import("./ToolsPages/SplitPage/SplitPage"));
 const PngToPdfPage = lazy(() => import("./ToolsPages/PngToPdfPage/PngToPdfPage"));
+const EditPdfPage = lazy(() => import("./ToolsPages/EditPdfPage/EditPdfPage"));
+const CompressPdfPage = lazy(() => import("./ToolsPages/CompressPdfPage/CompressPdfPage"));
+const PdfToPngPage = lazy(() => import("./ToolsPages/PdfToPngPage/PdfToPngPage"));
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
             <Route path="/tools/merge-pdf" element={<MergePdfPage />} />
             <Route path="/tools/split-pdf" element={<SplitPage />} />
             <Route path="/tools/png-to-pdf" element={<PngToPdfPage />} />
+            <Route path="/tools/edit-pdf" element={<EditPdfPage />} />
+            <Route path="/tools/compress-pdf" element={<CompressPdfPage />} />
+            <Route path="/tools/pdf-to-png" element={<PdfToPngPage />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

@@ -1,5 +1,7 @@
+import ComingSoon from "@/components/ComingSoon/ComingSoon";
+
 const EditPdf = () => {
-  return <div>EditPdf</div>;
+  return <><ComingSoon /> </>;
 };
 
 export default EditPdf;
