@@ -1,5 +1,7 @@
+import ComingSoon from "@/components/ComingSoon/ComingSoon";
+
 const PdfToPng = () => {
-  return <div>PdfToPng</div>;
+  return <><ComingSoon /> </>;
 };
 
 export default PdfToPng;
