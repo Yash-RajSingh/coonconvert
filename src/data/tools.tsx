@@ -4,11 +4,13 @@ import CompressPdf from "@components/Tools/CompressPdf/CompressPdf";
 import MergePdf from "@components/Tools/MergePdf/MergePdf";
 import SplitPdf from "@components/Tools/SplitPdf/SplitPdf";
 import EditPdf from "@components/Tools/EditPdf/EditPdf";
+import ProtectPdf from "@components/Tools/ProtectPdf/ProtectPdf";
 import PdfToPngIcon from "@assets/tools/pdf-to-png.svg";
 import CompressPdfIcon from "@assets/tools/compress-pdf.svg";
 import MergePdfIcon from "@assets/tools/merge-pdf.svg";
 import SplitPdfIcon from "@assets/tools/split-pdf.svg";
 import EditPdfIcon from "@assets/tools/edit-pdf.svg";
+import ProtectPdfIcon from "@assets/tools/protect-pdf.svg";
 
 export const tools = [
   {
@@ -58,5 +60,13 @@ export const tools = [
     icon: EditPdfIcon,
     component: <EditPdf />,
     color: "#11c0c5",
+  },
+  {
+    id: "protect-pdf",
+    name: "Protect PDF",
+    description: "Protect a PDF file with a password",
+    icon: ProtectPdfIcon,
+    component: <ProtectPdf />,
+    color: "#E8516A",
   },
 ];

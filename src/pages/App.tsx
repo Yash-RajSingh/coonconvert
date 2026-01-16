@@ -12,6 +12,7 @@ const PngToPdfPage = lazy(() => import("./ToolsPages/PngToPdfPage/PngToPdfPage")
 const EditPdfPage = lazy(() => import("./ToolsPages/EditPdfPage/EditPdfPage"));
 const CompressPdfPage = lazy(() => import("./ToolsPages/CompressPdfPage/CompressPdfPage"));
 const PdfToPngPage = lazy(() => import("./ToolsPages/PdfToPngPage/PdfToPngPage"));
+const ProtectPdfPage = lazy(() => import("./ToolsPages/ProtectPdfPage/ProtectPdfPage"));
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/tools/edit-pdf" element={<EditPdfPage />} />
             <Route path="/tools/compress-pdf" element={<CompressPdfPage />} />
             <Route path="/tools/pdf-to-png" element={<PdfToPngPage />} />
+            <Route path="/tools/protect-pdf" element={<ProtectPdfPage />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
