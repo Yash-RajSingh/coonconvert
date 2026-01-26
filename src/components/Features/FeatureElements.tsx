@@ -10,6 +10,9 @@ export const FeatureItemWrapper = styled.div`
   margin-top: 3rem;
   place-items: center;
   place-content: center;
+  @media (max-width: 450px) {
+    grid-template-columns: repeat(1, minmax(20rem, 1fr));
+  }
 `;
 
 export const FeatureItemBody = styled.div`
@@ -18,17 +21,35 @@ export const FeatureItemBody = styled.div`
   gap: 0.5rem;
   width: 25rem;
   padding: 1rem;
+  @media (max-width: 450px) {
+    width: calc(100% - 2rem);
+  }
+`;
+
+export const FeatureHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 450px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
 `;
 export const FeatureItemIcon = styled.img`
   width: 4.5rem;
   aspect-ratio: 1/1;
   margin: 0 0 0.5rem;
+  @media (max-width: 450px) {
+    width: 3rem;
+  }
 `;
 export const FeatureItemTitle = styled.h3`
-  font: 600 1.5rem "Roboto";
-  color: #333;
+  font: 600 var(--tools-card-title-font-size) "Roboto";
 `;
 export const FeatureItemDescription = styled.p`
-  font: 300 1.125rem "Manrope";
+  font: 300 var(--description-font-size) "Manrope";
   letter-spacing: 0.025em;
+  @media (max-width: 450px) {
+    font: 300 var(--description-font-size) "Manrope";
+  }
 `;

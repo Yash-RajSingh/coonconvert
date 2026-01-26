@@ -13,33 +13,49 @@ export const LandingWrapper = styled.div`
   gap: 2rem;
   align-items: center;
   margin-top: 10rem;
+  @media (max-width: 450px) {
+  flex-wrap: wrap;
+  }
 `;
 export const LandingContent = styled.div`
   width: 50%;
   height: 100%;
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
 export const LandingContentTitle = styled.p`
-  font-size: 4rem;
+  font-size: var(--heading-font-size);
   font-weight: 700;
-  color: #333;
   font-family: "StackSans";
   line-height: 1.25;
+  @media (max-width: 450px) {
+    font-size: 2.5rem;
+    text-align: center;
+  }
 `;
 export const LandingContentTitleHighlight = styled.span`
-  color: #125bfb;
+  color: var(--theme-dark-blue);
 `;
 export const LandingContentDescription = styled.p`
-  font-size: 1.25rem;
+  font: 400 var(--description-font-size) "Manrope";
   color: #808080;
   font-family: "Manrope";
   width: 70%;
   line-height: 1.5;
   margin-top: 1rem;
+  @media (max-width: 450px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const LandingImageWrapper = styled.div`
   width: 50%;
   height: 100%;
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
 export const LandingImage = styled.img`
   width: 100%;

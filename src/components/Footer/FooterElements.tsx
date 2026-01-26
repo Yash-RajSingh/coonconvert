@@ -19,19 +19,17 @@ export const FooterWrapper = styled.div`
   align-items: start;
   justify-content: space-between;
 `;
-export const FooterContent = styled.div<{ align?: string; gap?: string }>`
+export const FooterContent = styled.div<{ align?: string; gap?: string; direction?: string }>`
   width: 20%;
   height: 100%;
   display: flex;
   gap: ${({ gap }) => gap || "0rem"};
-  flex-direction: column;
+  flex-direction: ${({ direction }) => direction === "row" ? "row" : "column"};
   align-items: ${({ align }) => align || "center"};
   justify-content: end;
   & h3 {
-    font-size: 1.5rem;
+    font-size: var(--tools-card-title-font-size);
     font-weight: 700;
-    color: #333;
-    margin-bottom: 1rem;
   }
   & span {
     font-size: 0.875rem;
@@ -39,14 +37,29 @@ export const FooterContent = styled.div<{ align?: string; gap?: string }>`
     color: var(--grey);
     cursor: pointer;
     &:hover {
-      color: #333;
+      color: var(--theme-font-color);
     }
+  }
+
+  @media (max-width: 450px) {
+    width: 30%;
+    &:last-child {
+      gap: 0.25rem;
+      & span{
+        font-size: 0.75rem;
+      }
+    }
+
   }
 `;
 export const FooterLogo = styled.img`
   width: 52px;
   height: 100%;
   margin: 0 auto;
+  @media (max-width: 450px) {
+  margin: 0;
+  width: 2.25rem;
+  }
 `;
 
 export const FooterTrademark = styled.p`
@@ -54,7 +67,6 @@ export const FooterTrademark = styled.p`
   line-height: 1.25rem;
   letter-spacing: 0.025em;
   font-weight: 400;
-  color: #333;
   text-align: center;
   margin-top: 1.5rem;
 `;

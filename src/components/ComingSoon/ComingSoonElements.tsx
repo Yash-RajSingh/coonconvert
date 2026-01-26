@@ -18,7 +18,7 @@ export const PlaceholderImage = styled.img`
 `;
 
 export const Message = styled.p`
-  font-size: 1.5rem;
+  font-size: var(--tools-card-title-font-size);
   text-align: center;
   font-weight: 500;
 `;
