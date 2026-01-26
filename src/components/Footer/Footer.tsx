@@ -10,26 +10,15 @@ const Footer = ({ alignBottom = false }: { alignBottom: boolean }) => {
   return (
     <FooterContainer alignBottom={alignBottom} >
       <FooterWrapper>
-        <FooterContent>
-          <h3>CoonConvert</h3>
+        <FooterContent direction={window.innerWidth < 450 ? "column" : "row"}>
           <FooterLogo src={Logo} alt="CoonConvert Logo" />
+          <h3>CoonConvert</h3>
         </FooterContent>
         <FooterContent align="start" gap="0.5rem">
           <h4>Links</h4>
           <span>About Us</span>
           <span>Contact Us</span>
           <span>Privacy Policy</span>
-        </FooterContent>
-        <FooterContent align="start" gap="0.5rem">
-          <h4>Products</h4>
-          <span>PDF to PNG</span>
-          <span>PNG to PDF</span>
-          <span>Compress PDF</span>
-        </FooterContent>
-        <FooterContent align="start" gap="0.5rem">
-          <span>Merge PDF</span>
-          <span>Split PDF</span>
-          <span>Edit PDF</span>
         </FooterContent>
       </FooterWrapper>
       <FooterTrademark>

@@ -36,7 +36,6 @@ export const ProtectPdfField = styled.div<{ $label?: string }>`
     content: "${(props) => props.$label || ''}";
     display: block;
     font: 500 0.875rem "Roboto";
-    color: #333;
     line-height: 1.5;
     margin-bottom: 0.5rem;
   }
@@ -46,7 +45,6 @@ export const ProtectPdfInput = styled.input<{ $theme?: string }>`
   width: 100%;
   padding: 0.625rem 0.75rem;
   font: 400 1rem "Roboto";
-  color: #333;
   border: 1px solid #e0e0e0;
   border-radius: 0.25rem;
   outline: none;

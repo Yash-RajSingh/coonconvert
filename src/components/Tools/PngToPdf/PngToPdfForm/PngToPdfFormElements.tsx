@@ -6,7 +6,6 @@ export const FormSection = styled.div`
 
 export const FormLabel = styled.label`
   font: 600 0.875rem "Roboto";
-  color: #333;
   display: block;
   margin-bottom: 0.75rem;
 `;
@@ -44,7 +43,7 @@ export const OrientationOption = styled.div<{
     content: "";
     width: ${(props) => (props.$orientation === "portrait" ? "50px" : "70px")};
     height: ${(props) => (props.$orientation === "portrait" ? "70px" : "50px")};
-    border: 2px solid #333;
+    border: 2px solid var(--theme-font-color);
     border-radius: 0.25rem;
     background: #f5f5f5;
     margin-bottom: 0.75rem;
@@ -53,7 +52,6 @@ export const OrientationOption = styled.div<{
   &::after {
     content: "${(props) => (props.$orientation === "portrait" ? "Portrait" : "Landscape")}";
     font: 400 0.875rem "Roboto";
-    color: #333;
     text-align: center;
   }
 `;
@@ -69,7 +67,6 @@ export const CheckboxContainer = styled.label`
   &::after {
     content: "Merge all images into one PDF file";
     font: 400 0.875rem "Roboto";
-    color: #333;
     user-select: none;
   }
 `;

@@ -5,6 +5,7 @@ import {
   FeatureItemTitle,
   FeatureItemWrapper,
   FeaturesContainer,
+  FeatureHeader
 } from "./FeatureElements";
 import { ToolsSectionHeader } from "@components/ToolsSection/ToolsSectionElements";
 import { features } from "@/data/features";
@@ -17,8 +18,10 @@ const Features = () => {
       <FeatureItemWrapper>
         {features?.map((feature: any) => (
           <FeatureItemBody key={feature?.id}>
+            <FeatureHeader>
             <FeatureItemIcon src={feature?.icon} alt={feature?.title} />
             <FeatureItemTitle>{feature?.title}</FeatureItemTitle>
+            </FeatureHeader>
             <FeatureItemDescription>
               {feature?.description}
             </FeatureItemDescription>

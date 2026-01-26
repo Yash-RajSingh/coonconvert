@@ -5,11 +5,10 @@ export const ToolsSectionContainer = styled.div`
   height: 100%;
 `;
 export const ToolsSectionHeader = styled.p`
-  color: #333;
   text-align: center;
-  font: 700 3.5rem "StackSans";
+  font: 700 var(--heading-font-size) "StackSans";
   & span {
-    color: #125bfb;
+    color: var(--theme-dark-blue);
   }
 `;
 

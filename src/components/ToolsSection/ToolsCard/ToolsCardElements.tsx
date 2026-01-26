@@ -25,6 +25,9 @@ export const ToolsCardBody = styled.div<{ color: string }>`
       rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
       rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   }
+  @media (max-width: 450px) {
+    max-height: fit-content;
+  }
 `;
 export const ToolsCardIcon = styled.img`
   width: 32px;
@@ -36,9 +39,7 @@ export const ToolsCardContentWrapper = styled.div`
   gap: 0.125rem;
 `;
 export const ToolsCardTitle = styled.p`
-  font-size: 1.5rem;
-  font: 600 1.2rem "Roboto";
-  color: #333;
+  font: 600 var(--tools-card-title-font-size) "Roboto";
   line-height: 1.5;
 `;
 export const ToolsCardDescription = styled.p`
@@ -50,7 +51,6 @@ export const ToolsCardDescription = styled.p`
 
 export const ToolHeader = styled.h1`
   font: 700 2.25rem "Roboto";
-  color: #333;
   line-height: 2.5rem;
   text-align: center;
   padding: 0.5rem;

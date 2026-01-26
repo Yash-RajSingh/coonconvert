@@ -9,6 +9,9 @@ export const HeaderContainer = styled.header.attrs({
   height: 4rem;
   position: sticky;
   top: 0;
+  @media (max-width: 450px) {
+    height: 3.25rem;
+  }
 `;
 
 export const HeaderWrapper = styled.div`
@@ -21,9 +24,18 @@ export const HeaderWrapper = styled.div`
   gap: 0.5rem;
   justify-content: start;
   h1 {
-    font-size: 1.5rem;
-    color: #333;
+    font-size: var(--tools-card-title-font-size);
     font-family: "Roboto";
+  }
+
+  @media (max-width: 450px) {
+    min-width: unset;
+    justify-content: center;
+    padding: 0.5rem 0rem;
+
+    h1 {
+      font-size: 1.25rem;
+    }
   }
 `;
 

@@ -19,6 +19,18 @@ const GlobalStyles = createGlobalStyle`
     --background-color: #eaf4ff;
     --white: #ffffff;
     --grey: #919795;
+    --theme-dark-blue: #125bfb;
+    --theme-font-color: #333;
+
+
+    --heading-font-size: 4rem;
+    --description-font-size: 1.25rem;
+    --tools-card-title-font-size: 1.25rem;
+    @media (max-width: 450px) {
+      --heading-font-size: 2.5rem;
+      --description-font-size: 1rem;
+      --tools-card-title-font-size: 1.125rem;
+    }
   }
 
   * {
