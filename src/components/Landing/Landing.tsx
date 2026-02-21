@@ -8,7 +8,7 @@ import {
   LandingContentTitleHighlight,
   LandingContentDescription,
 } from "./LandingElements";
-import HeroImage from "@assets/hero.png";
+import HeroImage from "@assets/hero.webp";
 
 const Landing = () => {
   return (
@@ -32,7 +32,16 @@ const Landing = () => {
             </LandingContentDescription>
           </LandingContent>
           <LandingImageWrapper>
-            <LandingImage src={HeroImage} alt="Landing Image" />
+            <LandingImage 
+              src={HeroImage} 
+              srcSet={`${HeroImage} 1x, ${HeroImage} 2x`}
+              alt="Landing Image" 
+              width={800}
+              height={600}
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
+            />
           </LandingImageWrapper>
         </LandingWrapper>
       </LandingContainer>
