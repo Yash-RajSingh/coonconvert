@@ -1,9 +1,9 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyles from "@/GlobalStyles";
-import Homepage from "@pages/Homepage/Homepage";
 import "notyf/notyf.min.css";
 import Preloader from "@/components/Preloader/Preloader";
+const Homepage = lazy(() => import("@pages/Homepage/Homepage"));
 const MergePdfPage = lazy(
   () => import("@pages/ToolsPages/MergePdfPage/MergePdfPage"),
 );

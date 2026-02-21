@@ -1,5 +1,7 @@
-import { useState, useMemo, useCallback } from "react";
-import FileUploader from "@components/FileUploader/FileUploader.tsx";
+import { useState, useMemo, useCallback, lazy, Suspense } from "react";
+import SkeletonLoader from "@components/SkeletonLoader/SkeletonLoader";
+
+const FileUploader = lazy(() => import("@components/FileUploader/FileUploader"));
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import {
   CloseIcon,
@@ -65,7 +67,9 @@ const MergePdf = () => {
 
   return (
     <>
-      <FileUploader accept="application/pdf" multiple />
+      <Suspense fallback={<SkeletonLoader />}>
+        <FileUploader accept="application/pdf" multiple />
+      </Suspense>
       <UploadedFilesWrapper>
         {files?.map((file, index) => (
           <UploadedFileCardWrapper

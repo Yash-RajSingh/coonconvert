@@ -14,7 +14,7 @@ const Features = () => {
       </ToolsSectionHeader>
       <FeatureItemWrapper>
         {features?.map((feature) => (
-          <Suspense key={feature?.id} fallback={<SkeletonLoader />}>
+          <Suspense key={feature?.id} fallback={<SkeletonLoader width={"30rem"} height={"10rem"}/> }>
             <FeatureItem
               id={feature?.id}
               icon={feature?.icon}
