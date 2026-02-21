@@ -9,12 +9,19 @@ export const ComingSoonWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+
+  @media (max-width: 450px) {
+    width: 95%;
+  }
 `;
 
 export const PlaceholderImage = styled.img`
   width: 50%;
   height: auto;
   object-fit: contain;
+  @media (max-width: 450px) {
+  width: 90%;
+  }
 `;
 
 export const Message = styled.p`

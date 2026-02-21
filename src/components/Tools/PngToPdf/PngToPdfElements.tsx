@@ -18,9 +18,21 @@ export const PngToPdfUploadedFilesContainer = styled.div<{ $theme?: string }>`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 450px) {
+    flex-direction: column-reverse;
+    gap:2rem;
+
+    div.uploaded-files-preview {
+    width: 100%;
+    }
+}
+  }
 `;
 
-export const PngToPdfPreviewCard = styled.div<{ $orientation?: "portrait" | "landscape" }>`
+export const PngToPdfPreviewCard = styled.div<{
+  $orientation?: "portrait" | "landscape";
+}>`
   width: ${(props) => (props.$orientation === "landscape" ? "180px" : "150px")};
   padding: 0.5rem;
   background: #fff;
@@ -31,13 +43,18 @@ export const PngToPdfPreviewCard = styled.div<{ $orientation?: "portrait" | "lan
 
   img {
     width: 100%;
-    height: ${(props) => (props.$orientation === "landscape" ? "120px" : "150px")};
+    height: ${(props) => (props.$orientation === "landscape" ? "7.5rem" : "10rem")};
     object-fit: cover;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
     border: 1px dashed #e0e0e0;
     pointer-events: none;
     border-radius: 0.25rem;
     transition: height 0.3s ease;
+  }
+
+  @media (max-width: 450px) {
+    width: ${(props) => (props.$orientation === "landscape" ? "80%" : "45%")};
+    padding: 0.5rem;
   }
 `;
 
@@ -55,7 +72,6 @@ export const PngToPdfFormContainer = styled.div.attrs({
   border-radius: 0.25rem;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  
   p.uploaded-files-count {
     font: 400 0.75rem "Roboto";
     line-height: 1.5;
@@ -70,6 +86,16 @@ export const PngToPdfFormContainer = styled.div.attrs({
       font: 600 1rem "Roboto";
       color: ${(props) => props.$theme || "#000"};
       line-height: 1.5;
+    }
+  }
+
+  @media (max-width: 450px) {
+    width: 100%;
+    padding: 0.75rem;
+    p.uploaded-files-count {
+      span {
+        font-size: 0.75rem;
+      }
     }
   }
 `;

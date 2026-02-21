@@ -7,6 +7,13 @@ export const FileUploaderContainer = styled.div`
   padding: 1rem;
   border-radius: 0.25rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 450px) {
+    width: 100%;
+    min-height: 200px;
+    padding: 0.5rem;
+    margin: 1rem auto 0;
+  }
 `;
 
 export const FileUploaderWrapper = styled.div<{ $theme?: string }>`
@@ -18,13 +25,21 @@ export const FileUploaderWrapper = styled.div<{ $theme?: string }>`
   align-items: center;
   flex-direction: column;
   gap: 0.5rem;
+
+  @media (max-width: 450px) {
+    min-height: calc(200px - 1rem);
+  }
 `;
 
 export const FileUploaderIcon = styled.div`
   aspect-ratio: 96/60;
   width: 5rem;
   cursor: pointer;
-  zindex: 0;
+  z-index: 0;
+
+  @media (max-width: 450px) {
+    width: 3.5rem;
+  }
 `;
 
 export const FileUploaderInput = styled.input.attrs({
@@ -44,5 +59,11 @@ export const FileUploaderLabel = styled.label<{ $theme?: string }>`
 
   &:active {
     transform: scale(0.98);
+  }
+
+  @media (max-width: 450px) {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
   }
 `;
