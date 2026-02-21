@@ -3,11 +3,14 @@ import {
   ToolsCardTitle,
   ToolsCardDescription,
   ToolsCardContentWrapper,
-  ToolsCardIcon,
 } from "./ToolsCardElements";
 import toolActivate from "@/hooks/toolActivate.ts";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@/store/hooks";
+import { lazy, Suspense } from "react";
+import SkeletonLoader from "@components/SkeletonLoader/SkeletonLoader";
+
+const ToolsCardIcon = lazy(() => import("./ToolsCardIconComponent"));
 
 const ToolsCard = ({ info }: { info: any }) => {
   const navigate = useNavigate();
@@ -20,7 +23,10 @@ const ToolsCard = ({ info }: { info: any }) => {
         toolActivate(info?.name, info?.id, navigate, info?.color, dispatch)
       }
     >
-      <ToolsCardIcon src={info?.icon} alt={info?.name} />
+      
+      <Suspense fallback={<SkeletonLoader width="2rem" height="2rem" />}>
+        <ToolsCardIcon src={info?.icon} alt={info?.name} />
+      </Suspense>
       <ToolsCardContentWrapper>
         <ToolsCardTitle>{info?.name}</ToolsCardTitle>
         <ToolsCardDescription>{info?.description}</ToolsCardDescription>

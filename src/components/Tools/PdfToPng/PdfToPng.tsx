@@ -1,6 +1,9 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, lazy, Suspense } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import FileUploader from "@components/FileUploader/FileUploader";
+import { removeFile } from "@/store/slices/filesSlice";
+import { useNotification } from "@/hooks/useNotification";
+import { convertPdfsToPngs } from "./PdfToPngUtils";
+import PdfIcon from "@assets/pdf.svg";
 import {
   CloseIcon,
   UploadedFileCard,
@@ -8,21 +11,21 @@ import {
   UploadedFileCardWrapper,
   PdfOperationButton,
 } from "../common";
-import PdfIcon from "@assets/pdf.svg";
-import { removeFile } from "@/store/slices/filesSlice";
-import { useNotification } from "@/hooks/useNotification";
-import { convertPdfsToPngs } from "./PdfToPngUtils";
+import SkeletonLoader from "@/components/SkeletonLoader/SkeletonLoader";
 
+const FileUploader = lazy(
+  () => import("@components/FileUploader/FileUploader"),
+);
 const PdfToPng = () => {
   const toolTheme = useMemo(
     () => sessionStorage.getItem("toolTheme") || undefined,
-    []
+    [],
   );
   const dispatch = useAppDispatch();
   const files = useAppSelector((state) => state?.files?.uploadedFiles);
   const [isLoading, setIsLoading] = useState(false);
   const { success, error: showError } = useNotification(3000);
-  
+
   const handleRemoveFile = (index: number) => {
     dispatch(removeFile(index));
   };
@@ -38,9 +41,10 @@ const PdfToPng = () => {
       await convertPdfsToPngs(files, (current, total) => {
         console.log(`Converting ${current}/${total} PDFs...`);
       });
-      const message = files.length === 1 
-        ? "1 PDF converted successfully!" 
-        : `${files.length} PDFs converted successfully!`;
+      const message =
+        files.length === 1
+          ? "1 PDF converted successfully!"
+          : `${files.length} PDFs converted successfully!`;
       success(message);
     } catch (error) {
       showError("Error converting PDFs. Please try again.");
@@ -52,7 +56,9 @@ const PdfToPng = () => {
 
   return (
     <>
-      <FileUploader accept="application/pdf" multiple />
+      <Suspense fallback={<SkeletonLoader />}>
+        <FileUploader accept="application/pdf" multiple />
+      </Suspense>
       <UploadedFilesWrapper>
         {files?.map((file, index) => (
           <UploadedFileCardWrapper
@@ -67,9 +73,9 @@ const PdfToPng = () => {
           </UploadedFileCardWrapper>
         ))}
       </UploadedFilesWrapper>
-      <PdfOperationButton 
+      <PdfOperationButton
         onClick={handleConvert}
-        $theme={toolTheme} 
+        $theme={toolTheme}
         disabled={files.length === 0 || isLoading}
       >
         {isLoading ? "Converting..." : "Convert to PNG"}

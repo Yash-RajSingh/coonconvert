@@ -1,4 +1,4 @@
-import FileUploader from "@components/FileUploader/FileUploader";
+import SkeletonLoader from "@components/SkeletonLoader/SkeletonLoader";
 import { useAppSelector } from "@/store/hooks";
 import { PdfOperationButton } from "../common";
 import { useMemo, useState, lazy, Suspense } from "react";
@@ -20,6 +20,10 @@ const SplitPdfRangeForm = lazy(
 );
 const SplitPdfPageForm = lazy(
   () => import("./SplitPdfPageForm/SplitPdfPageForm"),
+);
+
+const FileUploader = lazy(
+  () => import("@components/FileUploader/FileUploader"),
 );
 const SplitPdf = () => {
   const toolTheme = useMemo(
@@ -51,7 +55,9 @@ const SplitPdf = () => {
 
   return (
     <>
-      <FileUploader accept="application/pdf" multiple={false} />
+      <Suspense fallback={<SkeletonLoader />}>
+        <FileUploader accept="application/pdf" multiple={false} />
+      </Suspense>
       {previews.length > 0 && (
         <SplitPdfUploadedFilesContainer $theme={toolTheme}>
           <div className="uploaded-file-preview" key={files?.[0]?.name}>

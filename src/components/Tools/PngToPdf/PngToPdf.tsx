@@ -1,6 +1,5 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, lazy, Suspense } from "react";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import FileUploader from "@components/FileUploader/FileUploader";
 import {
   PngToPdfUploadedFilesContainer,
   PngToPdfPreviewCard,
@@ -11,6 +10,10 @@ import { generateThumbnails } from "./PngToPdfUtils";
 import PngToPdfForm, { type PngToPdfFormState } from "./PngToPdfForm/PngToPdfForm";
 import { removeFile } from "@/store/slices/filesSlice";
 import { useNotification } from "@/hooks/useNotification";
+import SkeletonLoader from "@/components/SkeletonLoader/SkeletonLoader";
+const FileUploader = lazy(
+  () => import("@components/FileUploader/FileUploader"),
+);
 
 const PngToPdf = () => {
   const toolTheme = useMemo(
@@ -53,7 +56,9 @@ const PngToPdf = () => {
 
   return (
     <>
-      <FileUploader accept="image/png, image/jpeg, image/jpg" multiple />
+      <Suspense fallback={<SkeletonLoader />}>
+        <FileUploader accept="image/png, image/jpeg, image/jpg" multiple />
+      </Suspense>
       {previews.length > 0 && (
         <PngToPdfUploadedFilesContainer $theme={toolTheme}>
           <div className="uploaded-files-preview">
