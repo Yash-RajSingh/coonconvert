@@ -1,66 +1,69 @@
-import FileUploader from "@components/FileUploader/FileUploader";
-import { useAppSelector } from "@/store/hooks";
-import { PdfOperationButton } from "../common";
-import { useMemo, useState, useEffect } from "react";
-import {
-  ProtectPdfUploadedFilesContainer,
-  ProtectPdfPreviewCard,
-  ProtectPdfFormContainer,
-  ProtectPdfFormActionWrapper,
-  ProtectPdfField,
-  ProtectPdfInput,
-} from "./ProtectPdfElements";
-import { renderPdfPages } from "../SplitPdf/SplitPdfUtils";
-import { validatePasswordFields } from "./ProtectPdfUtils";
-import { useNotification } from "@/hooks/useNotification";
+// import FileUploader from "@components/FileUploader/FileUploader";
+// import { useAppSelector } from "@/store/hooks";
+// import { PdfOperationButton } from "../common";
+// import { useMemo, useState, useEffect } from "react";
+// import {
+//   ProtectPdfUploadedFilesContainer,
+//   ProtectPdfPreviewCard,
+//   ProtectPdfFormContainer,
+//   ProtectPdfFormActionWrapper,
+//   ProtectPdfField,
+//   ProtectPdfInput,
+// } from "./ProtectPdfElements";
+// import { renderPdfPages } from "../SplitPdf/SplitPdfUtils";
+// import { validatePasswordFields } from "./ProtectPdfUtils";
+// import { useNotification } from "@/hooks/useNotification";
+import ComingSoon from "@/components/ComingSoon/ComingSoon";
 
 const ProtectPdf = () => {
-  const toolTheme = useMemo(
-    () => sessionStorage.getItem("toolTheme") || undefined,
-    [],
-  );
-  const files = useAppSelector((state) => state?.files?.uploadedFiles);
-  const [isLoading, setIsLoading] = useState(false);
-  const [preview, setPreview] = useState<string>("");
-  const [passwordData, setPasswordData] = useState({
-    password: "",
-    confirmPassword: "",
-  });
-  const { error: showError } = useNotification(3000);
+  // const toolTheme = useMemo(
+  //   () => sessionStorage.getItem("toolTheme") || undefined,
+  //   [],
+  // );
+  // const files = useAppSelector((state) => state?.files?.uploadedFiles);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [preview, setPreview] = useState<string>("");
+  // const [passwordData, setPasswordData] = useState({
+  //   password: "",
+  //   confirmPassword: "",
+  // });
+  // const { error: showError } = useNotification(3000);
 
-  useEffect(() => {
-    if (files.length > 0) {
-      (async () => {
-        setPreview("");
-        setPasswordData({ password: "", confirmPassword: "" });
-        const file = files[0];
-        console.log(file);
-        // Render only the first page as preview
-        const images = await renderPdfPages(file);
-        setPreview(images[0]);
-        setTimeout(() => {
-          document
-            .querySelector(".uploaded-file-preview")
-            ?.scrollIntoView({ behavior: "smooth" });
-        }, 500);
-      })();
-    }
-  }, [files]);
+  // useEffect(() => {
+  //   if (files.length > 0) {
+  //     (async () => {
+  //       setPreview("");
+  //       setPasswordData({ password: "", confirmPassword: "" });
+  //       const file = files[0];
+  //       console.log(file);
+  //       // Render only the first page as preview
+  //       const images = await renderPdfPages(file);
+  //       setPreview(images[0]);
+  //       setTimeout(() => {
+  //         document
+  //           .querySelector(".uploaded-file-preview")
+  //           ?.scrollIntoView({ behavior: "smooth" });
+  //       }, 500);
+  //     })();
+  //   }
+  // }, [files]);
 
-  const handleProtect = async () => {
-    // Validate password fields
-    const validation = validatePasswordFields(passwordData);
+  // const handleProtect = async () => {
+  //   // Validate password fields
+  //   const validation = validatePasswordFields(passwordData);
     
-    if (!validation.isValid) {
-      showError(validation.error || "Password Validation failed");
-      return;
-    }
+  //   if (!validation.isValid) {
+  //     showError(validation.error || "Password Validation failed");
+  //     return;
+  //   }
 
-  };
+  // };
 
   return (
     <>
-      <FileUploader accept="application/pdf" multiple={false} />
+  <ComingSoon />
+    
+      {/* <FileUploader accept="application/pdf" multiple={false} />
       {preview && (
         <ProtectPdfUploadedFilesContainer $theme={toolTheme}>
           <div className="uploaded-file-preview" key={files?.[0]?.name}>
@@ -122,7 +125,7 @@ const ProtectPdf = () => {
             </PdfOperationButton>
           </ProtectPdfFormContainer>
         </ProtectPdfUploadedFilesContainer>
-      )}
+      )} */}
     </>
   );
 };
