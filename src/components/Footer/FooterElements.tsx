@@ -7,7 +7,7 @@ export const FooterContainer = styled.div.attrs({
   margin-top: 10rem;
   background-color: var(--white);
   position: ${({ alignBottom }) => alignBottom ? "absolute" : "relative"};
-  bottom: ${({ alignBottom }) => alignBottom ? "0" : "auto"};
+  bottom: ${({ alignBottom }) => alignBottom ? 0 : "auto"};
 `;
 export const FooterWrapper = styled.div`
   width: 100%;

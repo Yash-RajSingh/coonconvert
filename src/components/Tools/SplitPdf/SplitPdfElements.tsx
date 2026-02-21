@@ -18,6 +18,10 @@ export const SplitPdfUploadedFilesContainer = styled.div<{ $theme?: string }>`
     align-items: center;
     justify-content: center;
   }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const SplitPdfPreviewCard = styled.div`
@@ -69,6 +73,10 @@ export const SplitPdfFormContainer = styled.div.attrs({
       line-height: 1.5;
     }
   }
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 export const SplitPdfButtonGroup = styled.div<{ width?: string }>`
@@ -100,6 +108,10 @@ export const SplitPdfButton = styled.div<{
   &:last-of-type {
     border-radius: 0rem 0.25rem 0.25rem 0;
     border-left-color: ${(props) => !props.$active && "transparent"};
+  }
+    @media screen and (max-width: 450px) {
+  font-size: 0.75rem ;
+  padding: 0.25rem 0.5rem;
   }
 `;
 

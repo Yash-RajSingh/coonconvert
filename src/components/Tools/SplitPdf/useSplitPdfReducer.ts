@@ -32,7 +32,7 @@ const initialState: SplitPdfFormState = {
   splitType: "ranges",
   extractType: "all",
   inputValue: "",
-  ranges: [{ id: crypto.randomUUID(), value: "" }],
+  ranges: [{ id: `range-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`, value: "" }],
 };
 
 const splitPdfFormReducer = (
@@ -66,7 +66,7 @@ const splitPdfFormReducer = (
     case "ADD_RANGE":
       return {
         ...state,
-        ranges: [...state.ranges, { id: crypto.randomUUID(), value: "" }],
+        ranges: [...state.ranges, { id: `range-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`, value: "" }],
       };
 
     case "REMOVE_RANGE":
@@ -88,7 +88,7 @@ const splitPdfFormReducer = (
     case "RESET_RANGES":
       return {
         ...state,
-        ranges: [{ id: crypto.randomUUID(), value: "" }],
+        ranges: [{ id: `range-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`, value: "" }],
       };
 
     case "RESET":

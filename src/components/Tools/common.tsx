@@ -31,6 +31,13 @@ export const UploadedFileCardWrapper = styled.div<{
   &:hover {
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
   }
+
+  @media (max-width: 450px) {
+    min-width: 5rem;
+    max-width: 5rem;
+    min-height: 110px;
+    padding: 0.35rem;
+  }
 `;
 export const UploadedFileCard = styled.li<{ $theme?: string }>`
   min-width: 7rem;
@@ -62,13 +69,26 @@ export const UploadedFileCard = styled.li<{ $theme?: string }>`
     white-space: nowrap;
     color: ${(props) => props.$theme || "#000"};
   }
+
+  @media (max-width: 450px) {
+    min-width: calc(5rem - 0.75rem);
+    max-width: calc(5rem - 0.75rem);
+    min-height: calc(110px - 0.75rem);
+    img {
+      width: 2rem;
+    }
+    p {
+      max-width: 4rem;
+      font-size: 0.5rem;
+    }
+  }
 `;
 
 export const CloseIcon = styled.div`
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 14px;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 0.75rem;
   aspect-ratio: 1/1;
   cursor: pointer;
   opacity: 0.6;
@@ -98,6 +118,7 @@ export const CloseIcon = styled.div`
   &::after {
     transform: translateY(-50%) rotate(-45deg);
   }
+
 `;
 
 export const PdfOperationButton = styled.button<{
@@ -126,5 +147,11 @@ font: 400 1rem "Roboto";
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+
+  @media (max-width: 450px) {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
   }
 }`;

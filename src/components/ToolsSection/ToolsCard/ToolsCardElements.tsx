@@ -27,11 +27,18 @@ export const ToolsCardBody = styled.div<{ color: string }>`
   }
   @media (max-width: 450px) {
     max-height: fit-content;
+    padding: 0.5rem;
+    width: 18rem;
+    
   }
 `;
 export const ToolsCardIcon = styled.img`
-  width: 32px;
+  width: 2rem;
   aspect-ratio: 1/1;
+
+  @media (max-width: 450px) {
+    width: 1.5rem;
+  }
 `;
 export const ToolsCardContentWrapper = styled.div`
   display: flex;
@@ -50,9 +57,13 @@ export const ToolsCardDescription = styled.p`
 `;
 
 export const ToolHeader = styled.h1`
-  font: 700 2.25rem "Roboto";
+  font: 700 var(--tool-header-font-size) "Roboto";
   line-height: 2.5rem;
   text-align: center;
   padding: 0.5rem;
   margin: 2rem auto 0;
+
+  @media (max-width: 450px) {
+    margin: 1rem auto 0;
+}
 `;

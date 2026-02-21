@@ -15,7 +15,14 @@ export const PreloaderContainer = styled.div`
   position: fixed;
   top: 1rem;
   left: 1rem;
-  z-index: 1000;
+  z-index: 100;
+
+  @media (max-width: 450px) {
+    width: calc(100vw - 1rem);
+    height: calc(100dvh - 2rem);
+    top: 0.5rem;
+    left: 0.5rem;
+  }
 `;
 export const PreloaderWrapper = styled.div`
   width: fit-content;
@@ -29,5 +36,10 @@ export const PreloaderWrapper = styled.div`
   animation: ${l11} 2s steps(8, jump-none) infinite;
   &:before {
     content: "Loading...";
+  }
+
+  @media (max-width: 450px) {
+    font-size: 1.5rem;
+    -webkit-text-stroke: 0.5px #000;
   }
 `;
