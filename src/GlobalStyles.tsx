@@ -3,16 +3,26 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Manrope';
-    src: url('/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+    src: local('Manrope Variable'),
+         local('Manrope-Variable'),
+         local('Manrope');
+    font-display: swap;
   }
 
   @font-face {
     font-family: 'StackSans';
-    src: url('/fonts/StackSansNotch-VariableFont_wght.ttf') format('truetype');
+    src: local('Stack Sans Variable'),
+         local('StackSans-Variable'),
+         local('StackSans');
+    font-display: swap;
   }
+
   @font-face {
     font-family: 'Roboto';
-    src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+    src: local('Roboto Variable'),
+         local('Roboto-Variable'),
+         local('Roboto');
+    font-display: swap;
   }
 
   :root {

@@ -40,7 +40,6 @@ export const LandingContentTitleHighlight = styled.span`
 export const LandingContentDescription = styled.p`
   font: 400 var(--description-font-size) "Manrope";
   color: #808080;
-  font-family: "Manrope";
   width: 70%;
   line-height: 1.5;
   margin-top: 1rem;
@@ -58,7 +57,11 @@ export const LandingImageWrapper = styled.div`
   }
 `;
 export const LandingImage = styled.img`
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  max-height: 600px;
+  object-fit: contain;
+  transform: translateZ(0);
+  will-change: transform;
 `;
