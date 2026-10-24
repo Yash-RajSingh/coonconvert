@@ -4,8 +4,9 @@ export const HeaderContainer = styled.header.attrs({
   id: "header-container",
 })`
   width: 100%;
-  background-color: var(--white);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ffffffcc;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
   height: 4rem;
   position: sticky;
   z-index: 10;
@@ -18,19 +19,16 @@ export const HeaderContainer = styled.header.attrs({
 export const HeaderWrapper = styled.div`
   padding: 1rem 0rem;
   max-width: 90%;
-  min-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  justify-content: start;
   h1 {
     font-size: var(--tools-card-title-font-size);
     font-family: "Roboto";
   }
 
   @media (max-width: 450px) {
-    min-width: unset;
     justify-content: center;
     padding: 0.5rem 0rem;
 
@@ -44,3 +42,12 @@ export const HeaderLogo = styled.img`
   width: 40px;
   height: 100%;
 `;
+
+export const HeaderBrand = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+`;
+

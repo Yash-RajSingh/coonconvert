@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const SplitPdfFormHelperText = styled.p`
-  font: 400 1rem/1.5 "Roboto";
-  color: #000;
-  margin-top: 0.5rem;
+  font: 600 0.875rem / 1.5 "Manrope";
+  color: var(--theme-font-color);
+  margin-bottom: 0.625rem;
 `;
 
 export const SplitPdfFormInput = styled.input.attrs<{ placeholder?: string }>(
@@ -13,31 +13,40 @@ export const SplitPdfFormInput = styled.input.attrs<{ placeholder?: string }>(
     className: "split-pdf-form-input",
   }),
 )<{ $theme?: string; $marginTop?: string }>`
-  width: 70%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.25rem;
-  font: 400 1rem "Roboto";
-  color: #000;
-  margin-top: ${(props) => props.$marginTop || "1rem"};
-  &:focus,
-  &:active {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 0.625rem;
+  font: 500 0.9375rem "Manrope";
+  color: var(--theme-font-color);
+  margin-top: ${(props) => props.$marginTop || "0.75rem"};
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  &::placeholder {
+    color: #94a3b8;
+  }
+  &:focus {
     outline: none;
-    border-color: ${(props) => props.$theme || "#000"};
+    border-color: ${(props) => props.$theme || "#125bfb"};
+    box-shadow: 0 0 0 3px ${(props) => `${props.$theme || "#125bfb"}26`};
   }
 `;
 
 export const SplitPdfFormNote = styled.p`
-  font: 400 0.75rem "Roboto";
-  color: #000;
+  font: 400 0.8125rem / 1.5 "Manrope";
+  color: #1e3a8a;
   margin-top: 1rem;
-  background-color: #def2ff;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.625rem;
 
   &::before {
     content: "Note:";
-    font-weight: 600;
+    font-weight: 700;
     margin-right: 0.25rem;
   }
 `;

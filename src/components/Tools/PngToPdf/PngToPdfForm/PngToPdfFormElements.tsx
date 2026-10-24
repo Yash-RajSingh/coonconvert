@@ -4,10 +4,9 @@ export const FormSection = styled.div`
   margin-top: 1rem;
 `;
 
-export const FormLabel = styled.label`
-  font: 600 0.875rem "Roboto";
-  display: block;
-  margin-bottom: 0.75rem;
+export const FormLabel = styled.p`
+  font: 600 0.875rem "Manrope";
+  margin-bottom: 0.625rem;
 `;
 
 export const OrientationGroup = styled.div`
@@ -16,7 +15,7 @@ export const OrientationGroup = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-export const OrientationOption = styled.div<{
+export const OrientationOption = styled.button.attrs({ type: "button" })<{
   $selected: boolean;
   $theme?: string;
   $orientation: "portrait" | "landscape";
@@ -27,31 +26,35 @@ export const OrientationOption = styled.div<{
   align-items: center;
   justify-content: flex-end;
   padding: 1rem;
-  border: 2px solid ${(props) => (props.$selected ? props.$theme || "#000" : "#e0e0e0")};
-  border-radius: 0.5rem;
-  background: #fff;
+  border: 2px solid
+    ${(props) => (props.$selected ? props.$theme || "#125bfb" : "var(--border)")};
+  border-radius: 0.875rem;
+  background: ${(props) =>
+    props.$selected ? `${props.$theme || "#125bfb"}0d` : "var(--white)"};
+  color: var(--theme-font-color);
   cursor: pointer;
   transition: all 0.2s;
   position: relative;
   min-height: 120px;
 
   &:hover {
-    border-color: #000;
+    border-color: ${(props) => props.$theme || "#125bfb"};
   }
 
   &::before {
     content: "";
     width: ${(props) => (props.$orientation === "portrait" ? "50px" : "70px")};
     height: ${(props) => (props.$orientation === "portrait" ? "70px" : "50px")};
-    border: 2px solid var(--theme-font-color);
-    border-radius: 0.25rem;
-    background: #f5f5f5;
+    border: 2px solid
+      ${(props) => (props.$selected ? props.$theme || "#125bfb" : "#94a3b8")};
+    border-radius: 0.375rem;
+    background: var(--white);
     margin-bottom: 0.75rem;
   }
 
   &::after {
     content: "${(props) => (props.$orientation === "portrait" ? "Portrait" : "Landscape")}";
-    font: 400 0.875rem "Roboto";
+    font: 600 0.875rem "Manrope";
     text-align: center;
   }
 `;
@@ -64,9 +67,12 @@ export const CheckboxContainer = styled.label`
   cursor: pointer;
   position: relative;
 
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
   &::after {
     content: "Merge all images into one PDF file";
-    font: 400 0.875rem "Roboto";
+    font: 500 0.875rem "Manrope";
     user-select: none;
   }
 `;
@@ -75,5 +81,5 @@ export const Checkbox = styled.input.attrs({ type: "checkbox" })<{ $theme?: stri
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: ${(props) => props.$theme || "#000"};
+  accent-color: ${(props) => props.$theme || "#125bfb"};
 `;

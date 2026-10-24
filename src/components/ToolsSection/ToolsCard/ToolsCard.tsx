@@ -3,6 +3,7 @@ import {
   ToolsCardTitle,
   ToolsCardDescription,
   ToolsCardContentWrapper,
+  ToolsCardIconTile,
 } from "./ToolsCardElements";
 import toolActivate from "@/hooks/toolActivate.ts";
 import { useNavigate } from "react-router-dom";
@@ -18,15 +19,17 @@ const ToolsCard = ({ info }: { info: any }) => {
 
   return (
     <ToolsCardBody
+      type="button"
       color={info?.color}
       onClick={() =>
         toolActivate(info?.name, info?.id, navigate, info?.color, dispatch)
       }
     >
-      
-      <Suspense fallback={<SkeletonLoader width="2rem" height="2rem" />}>
-        <ToolsCardIcon src={info?.icon} alt={info?.name} />
-      </Suspense>
+      <ToolsCardIconTile color={info?.color}>
+        <Suspense fallback={<SkeletonLoader width="1.75rem" height="1.75rem" />}>
+          <ToolsCardIcon src={info?.icon} alt="" />
+        </Suspense>
+      </ToolsCardIconTile>
       <ToolsCardContentWrapper>
         <ToolsCardTitle>{info?.name}</ToolsCardTitle>
         <ToolsCardDescription>{info?.description}</ToolsCardDescription>

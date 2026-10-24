@@ -6,9 +6,9 @@ import {
   FooterTrademark,
 } from "./FooterElements";
 import Logo from "@assets/coonconvert.svg";
-const Footer = ({ alignBottom = false }: { alignBottom: boolean }) => {
+const Footer = () => {
   return (
-    <FooterContainer alignBottom={alignBottom} >
+    <FooterContainer>
       <FooterWrapper>
         <FooterContent direction={window.innerWidth < 450 ? "column" : "row"}>
           <FooterLogo src={Logo} alt="CoonConvert Logo" />

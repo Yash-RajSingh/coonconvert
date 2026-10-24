@@ -1,12 +1,15 @@
 import styled from "styled-components";
 export const UploadedFilesWrapper = styled.div`
-  width: 100%;
+  width: min(100%, 60rem);
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  align-items: center;
-  padding: 1rem;
+  padding: 1rem 0;
+  &:empty {
+    display: none;
+  }
 `;
 
 export const UploadedFileCardWrapper = styled.div<{
@@ -14,111 +17,100 @@ export const UploadedFileCardWrapper = styled.div<{
   $isDragging?: boolean;
   $isDragOver?: boolean;
 }>`
-  min-width: 8rem;
-  max-width: 8rem;
-  min-height: 150px;
-  border: 1px dashed ${(props) => props.$theme || "#000"};
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  width: 9rem;
+  border-radius: 1rem;
+  border: 2px solid
+    ${(props) => (props.$isDragOver ? props.$theme || "#125bfb" : "transparent")};
   cursor: ${(props) => (props.$isDragging ? "grabbing" : "grab")};
   opacity: ${(props) => (props.$isDragging ? 0.5 : 1)};
-  transform: ${(props) => (props.$isDragOver ? "scale(1.05)" : "scale(1)")};
-  border-width: ${(props) => (props.$isDragOver ? "2px" : "1px")};
-  border-style: ${(props) => (props.$isDragOver ? "solid" : "dashed")};
+  transform: ${(props) => (props.$isDragOver ? "scale(1.04)" : "none")};
   transition: all 0.2s ease;
-
-  &:hover {
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
-  }
-
   @media (max-width: 450px) {
-    min-width: 5rem;
-    max-width: 5rem;
-    min-height: 110px;
-    padding: 0.35rem;
+    width: 6.5rem;
   }
 `;
 export const UploadedFileCard = styled.li<{ $theme?: string }>`
-  min-width: 7rem;
-  max-width: 7rem;
-  min-height: calc(150px - 1rem);
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  background-color: #fff;
   list-style: none;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   align-items: center;
-  justify-content: end;
+  gap: 0.75rem;
+  padding: 1.5rem 0.75rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 3px solid ${(props) => props.$theme || "#125bfb"};
+  border-radius: 0.875rem;
+  transition: box-shadow 0.2s;
+  &:hover {
+    box-shadow: 0 10px 24px -12px #0f172a40;
+  }
   img {
     width: 3rem;
     aspect-ratio: 1/1;
     object-fit: contain;
-    margin: 0 auto 1rem;
     pointer-events: none;
   }
   p {
-    font-size: 0.75rem;
-    font-weight: 500;
-    max-width: 6rem;
+    max-width: 100%;
+    font: 600 0.8125rem "Manrope";
+    color: var(--theme-font-color);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: ${(props) => props.$theme || "#000"};
   }
-
   @media (max-width: 450px) {
-    min-width: calc(5rem - 0.75rem);
-    max-width: calc(5rem - 0.75rem);
-    min-height: calc(110px - 0.75rem);
+    padding: 1.25rem 0.5rem 0.75rem;
     img {
-      width: 2rem;
+      width: 2.25rem;
     }
     p {
-      max-width: 4rem;
-      font-size: 0.5rem;
+      font-size: 0.6875rem;
     }
   }
 `;
 
-export const CloseIcon = styled.div`
+export const CloseIcon = styled.button.attrs({
+  type: "button",
+  "aria-label": "Remove file",
+})`
   position: absolute;
-  top: 0.25rem;
-  right: 0.25rem;
-  width: 0.75rem;
+  top: 0.375rem;
+  right: 0.375rem;
+  z-index: 1;
+  width: 1.5rem;
   aspect-ratio: 1/1;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.2s;
-  background-color: red;
+  border: none;
   border-radius: 50%;
-  border: 2px solid red;
-  &:hover {
-    opacity: 1;
+  background: #f1f5f9;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover,
+  &:focus-visible {
+    background: #ef4444;
   }
-
   &::before,
   &::after {
     content: "";
     position: absolute;
-    width: 100%;
+    width: 0.625rem;
     height: 2px;
-    background-color: white;
+    background: #64748b;
     top: 50%;
-    left: 0;
+    left: 50%;
   }
-
+  &:hover::before,
+  &:hover::after,
+  &:focus-visible::before,
+  &:focus-visible::after {
+    background: white;
+  }
   &::before {
-    transform: translateY(-50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
   }
-
   &::after {
-    transform: translateY(-50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
-
 `;
 
 export const PdfOperationButton = styled.button<{
@@ -126,32 +118,71 @@ export const PdfOperationButton = styled.button<{
   $left?: string;
   $marginTop?: string;
 }>`
-padding: 0.5rem 2rem;
-position: relative;
-left: ${(props) => props.$left || "100%"};
-transform: ${(props) => (props.$left ? "none" : "translateX(-100%)")};
-margin-top: ${(props) => props.$marginTop || "1rem"};
-color: ${(props) => props.$theme || "#000"};
-font: 400 1rem "Roboto";
-  background-color:white;
-  border: 1px solid ${(props) => props.$theme || "#000"};
-  border-radius: 0.25rem;
+  display: block;
+  /* right-aligned by default; $left="0" keeps it inline-left */
+  margin-left: ${(props) => (props.$left ? "0" : "auto")};
+  margin-top: ${(props) => props.$marginTop || "1rem"};
+  padding: 0.75rem 1.75rem;
+  color: white;
+  font: 600 1rem "Manrope";
+  white-space: nowrap;
+  background-color: ${(props) => props.$theme || "#125bfb"};
+  border: 1px solid ${(props) => props.$theme || "#125bfb"};
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px -10px ${(props) => props.$theme || "#125bfb"};
   cursor: pointer;
-  transition: all 0.2s;
-  
+  transition:
+    filter 0.2s,
+    box-shadow 0.2s;
   &:hover:not(:disabled) {
-    background-color: ${(props) => props.$theme || "#000"};
-    color: white;
+    filter: brightness(1.08);
+    box-shadow: 0 10px 24px -8px ${(props) => props.$theme || "#125bfb"};
   }
-  
+  &:focus-visible {
+    outline: 3px solid ${(props) => `${props.$theme || "#125bfb"}55`};
+    outline-offset: 2px;
+  }
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.45;
+    box-shadow: none;
     cursor: not-allowed;
   }
-
   @media (max-width: 450px) {
-    padding: 6px 12px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
   }
-}`;
+`;
+
+// Lighter button for secondary actions inside forms (add/remove range).
+export const SecondaryOperationButton = styled(PdfOperationButton)`
+  color: ${(props) => props.$theme || "#125bfb"};
+  background: var(--white);
+  border-color: var(--border);
+  box-shadow: none;
+  &:hover:not(:disabled) {
+    filter: none;
+    box-shadow: none;
+    border-color: ${(props) => props.$theme || "#125bfb"};
+    background: ${(props) => `${props.$theme || "#125bfb"}0d`};
+  }
+`;
+
+// Side panel used by tools that show previews next to options
+// (split, image to PDF, protect).
+export const ToolPanel = styled.div<{ $theme?: string }>`
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 32px -16px #0f172a26;
+  overflow: hidden;
+  @media (max-width: 450px) {
+    padding: 1rem;
+  }
+`;
+
+// Keeps the main action lined up with the uploader width.
+export const ToolActionBar = styled.div`
+  width: min(100%, 60rem);
+  margin: 0 auto;
+`;

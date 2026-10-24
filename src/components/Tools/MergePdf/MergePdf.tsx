@@ -8,6 +8,7 @@ import {
   PdfOperationButton,
   UploadedFileCard,
   UploadedFilesWrapper,
+  ToolActionBar,
   UploadedFileCardWrapper,
 } from "../common";
 import PdfIcon from "@assets/pdf.svg";
@@ -91,13 +92,15 @@ const MergePdf = () => {
           </UploadedFileCardWrapper>
         ))}
       </UploadedFilesWrapper>
-      <PdfOperationButton
-        onClick={() => handleMerge(files, setIsLoading, success, error)}
-        disabled={isLoading || files.length < 2}
-        $theme={toolTheme}
-      >
-        {isLoading ? "Merging..." : "Merge"}
-      </PdfOperationButton>
+      <ToolActionBar>
+        <PdfOperationButton
+          onClick={() => handleMerge(files, setIsLoading, success, error)}
+          disabled={isLoading || files.length < 2}
+          $theme={toolTheme}
+        >
+          {isLoading ? "Merging..." : "Merge PDFs"}
+        </PdfOperationButton>
+      </ToolActionBar>
     </>
   );
 };

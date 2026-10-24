@@ -1,10 +1,20 @@
-import { ComingSoonWrapper, PlaceholderImage, Message } from "./ComingSoonElements";
+import {
+  ComingSoonWrapper,
+  PlaceholderImage,
+  Message,
+  ComingSoonBadge,
+  BackLink,
+} from "./ComingSoonElements";
 import ToBeReleasedImage from "@assets/toBeReleased.png";
 const ComingSoon = () => {
   return (
     <ComingSoonWrapper>
-      <PlaceholderImage src={ToBeReleasedImage} alt="Coming Soon" />
-      <Message>✨ Something awesome is brewing! Check back soon.</Message>
+      <ComingSoonBadge>Coming soon</ComingSoonBadge>
+      <PlaceholderImage src={ToBeReleasedImage} alt="" />
+      <Message>
+        We are still building this tool. Check back soon.
+      </Message>
+      <BackLink href="/#tools">← Browse other tools</BackLink>
     </ComingSoonWrapper>
   );
 };
