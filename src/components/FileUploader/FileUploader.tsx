@@ -4,6 +4,7 @@ import {
   FileUploaderIcon,
   FileUploaderInput,
   FileUploaderLabel,
+  FileUploaderHint,
 } from "./FileUploaderElements";
 import { useAppDispatch } from "@/store/hooks";
 import { addFiles, clearFiles, addFile } from "@/store/slices/filesSlice";
@@ -51,7 +52,6 @@ const FileUploader = ({
       if (!multiple) {
         dispatch(clearFiles());
       }
-      console.log(validFiles);
       if (!multiple) {
         dispatch(addFile(validFiles[0]));
       } else {
@@ -77,7 +77,11 @@ const FileUploader = ({
           </FileUploaderIcon>
           <FileUploaderInput
             id="file-upload"
-            onChange={handleFileUpload}
+            onChange={(e) => {
+              handleFileUpload(e);
+              // allow picking the same file again
+              e.target.value = "";
+            }}
             accept={accept}
             multiple={multiple}
           />
@@ -85,8 +89,12 @@ const FileUploader = ({
             htmlFor="file-upload"
             $theme={sessionStorage.getItem("toolTheme") || undefined}
           >
-            Choose File
+            {multiple ? "Choose files" : "Choose file"}
           </FileUploaderLabel>
+          <FileUploaderHint>
+            or drop {multiple ? "files" : "a file"} here
+            <small>Processed on your device. Nothing is uploaded.</small>
+          </FileUploaderHint>
         </FileUploaderWrapper>
       </FileUploaderContainer>
     </>

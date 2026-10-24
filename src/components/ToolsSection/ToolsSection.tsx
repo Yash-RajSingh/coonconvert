@@ -1,4 +1,6 @@
 import {
+  SectionEyebrow,
+  SectionSubtitle,
   ToolsSectionContainer,
   ToolsSectionHeader,
   ToolsSectionWrapper,
@@ -10,14 +12,22 @@ import SkeletonLoader from "@components/SkeletonLoader/SkeletonLoader";
 const ToolsCard = lazy(() => import("./ToolsCard/ToolsCard"));
 const ToolsSection = () => {
   return (
-    <ToolsSectionContainer>
+    <ToolsSectionContainer id="tools">
+      <SectionEyebrow>Tools</SectionEyebrow>
       <ToolsSectionHeader>
-        Most Popular <span>PDF Tools</span>
+        Most popular <span>PDF tools</span>
       </ToolsSectionHeader>
+      <SectionSubtitle>
+        Pick a tool, drop in your files and download the result. No accounts,
+        no waiting.
+      </SectionSubtitle>
       <ToolsSectionWrapper>
-        {tools?.map((item, index) => (
-          <Suspense fallback={<SkeletonLoader width="20.5rem" height="6.5rem"/>}>
-            <ToolsCard key={item?.id + index} info={item} />
+        {tools?.map((item) => (
+          <Suspense
+            key={item?.id}
+            fallback={<SkeletonLoader width="100%" height="9rem" />}
+          >
+            <ToolsCard info={item} />
           </Suspense>
         ))}
       </ToolsSectionWrapper>

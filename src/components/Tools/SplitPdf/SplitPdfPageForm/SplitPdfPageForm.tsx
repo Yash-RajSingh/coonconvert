@@ -23,8 +23,8 @@ const SplitPdfPageForm = ({ formState, dispatch }: SplitPdfPageFormProps) => {
   );
   return (
     <div>
-      <SplitPdfFormHelperText>Extract : </SplitPdfFormHelperText>
-      <SplitPdfButtonGroup width="80%">
+      <SplitPdfFormHelperText>Extract</SplitPdfFormHelperText>
+      <SplitPdfButtonGroup>
         <SplitPdfButton
           $active={formState.extractType === "all"}
           onClick={() => dispatch({ type: "SET_EXTRACT_TYPE", payload: "all" })}

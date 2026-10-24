@@ -63,14 +63,14 @@ const SplitPdf = () => {
           <div className="uploaded-file-preview" key={files?.[0]?.name}>
             {previews.map((src, index) => (
               <SplitPdfPreviewCard key={`uploaded-file-preview-${index}`}>
-                <img src={src} alt={`Page ${index}`} />
+                <img src={src} alt={`Page ${index + 1}`} />
                 <span>{index + 1}</span>
               </SplitPdfPreviewCard>
             ))}
           </div>
           <SplitPdfFormContainer $theme={toolTheme} key={files?.[0]?.name}>
             <p className="uploaded-file-name">
-              <span>Split -</span> {files?.[0]?.name}
+              <span>Split PDF</span> {files?.[0]?.name}
             </p>
             <SplitPdfButtonGroup>
               <SplitPdfButton

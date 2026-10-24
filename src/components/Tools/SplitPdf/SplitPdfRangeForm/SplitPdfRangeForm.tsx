@@ -4,7 +4,7 @@ import type {
   SplitPdfFormAction,
 } from "../useSplitPdfReducer";
 import { SplitPdfFormHelperText, SplitPdfFormInput } from "../commonElements";
-import { PdfOperationButton } from "../../common";
+import { SecondaryOperationButton } from "../../common";
 
 interface SplitPdfRangeFormProps {
   formState: SplitPdfFormState;
@@ -30,14 +30,13 @@ const SplitPdfRangeForm = ({ formState, dispatch }: SplitPdfRangeFormProps) => {
             gap: "0.5rem",
             alignItems: "center",
             marginBottom: "0.5rem",
-            justifyContent: "space-between",
           }}
         >
           <SplitPdfFormInput
             placeholder={`Range ${index + 1}: 1-5`}
             $theme={toolTheme}
             value={range.value}
-            $marginTop={index > 0 ? "0" : "1rem"}
+            $marginTop="0"
             onChange={(e) =>
               dispatch({
                 type: "UPDATE_RANGE",
@@ -46,27 +45,29 @@ const SplitPdfRangeForm = ({ formState, dispatch }: SplitPdfRangeFormProps) => {
             }
           />
           {formState.ranges.length > 1 && (
-            <PdfOperationButton
+            <SecondaryOperationButton
               $left="0"
               $theme={toolTheme}
               $marginTop="0"
+              aria-label={`Remove range ${index + 1}`}
               onClick={() =>
                 dispatch({ type: "REMOVE_RANGE", payload: range.id })
               }
             >
               ✕
-            </PdfOperationButton>
+            </SecondaryOperationButton>
           )}
         </div>
       ))}
-      <PdfOperationButton
+      <SecondaryOperationButton
         type="button"
+        $left="0"
         onClick={() => dispatch({ type: "ADD_RANGE" })}
         $theme={toolTheme}
         style={{ marginTop: "0.5rem" }}
       >
-        + Add Range
-      </PdfOperationButton>
+        + Add range
+      </SecondaryOperationButton>
     </div>
   );
 };

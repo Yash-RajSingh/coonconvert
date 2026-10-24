@@ -8,14 +8,14 @@ export const features = [
     icon: EasyToUseIcon,
     title: "Easy to use",
     description:
-      "Our tools are easy to use and understand. You can use them without any technical knowledge.",
+      "Drop in a file, pick an option, download. No technical knowledge needed.",
   },
   {
     id: "fast-and-efficient",
     icon: FastAndEfficientIcon,
     title: "Fast and efficient",
     description:
-      "Our tools are fast and efficient. You can use them without any technical knowledge.",
+      "Files are processed right in your browser, so there is no upload or download queue to wait for.",
   },
   {
     id: "secure-and-reliable",

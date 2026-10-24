@@ -1,11 +1,18 @@
-import { HeaderContainer, HeaderLogo, HeaderWrapper } from "./HeaderElements";
+import {
+  HeaderContainer,
+  HeaderLogo,
+  HeaderWrapper,
+  HeaderBrand,
+} from "./HeaderElements";
 import Logo from "@assets/coonconvert.svg";
 const Header = () => {
   return (
     <HeaderContainer>
       <HeaderWrapper>
-        <HeaderLogo src={Logo} alt="CoonConvert Logo" />
-        <h1>CoonConvert</h1>
+        <HeaderBrand href="/">
+          <HeaderLogo src={Logo} alt="" />
+          <h1>CoonConvert</h1>
+        </HeaderBrand>
       </HeaderWrapper>
     </HeaderContainer>
   );

@@ -5,7 +5,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Manrope';
     src: local('Manrope Variable'),
          local('Manrope-Variable'),
-         local('Manrope');
+         local('Manrope'),
+         url('/fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+    font-weight: 200 800;
     font-display: swap;
   }
 
@@ -13,7 +15,9 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'StackSans';
     src: local('Stack Sans Variable'),
          local('StackSans-Variable'),
-         local('StackSans');
+         local('StackSans'),
+         url('/fonts/StackSansNotch-VariableFont_wght.ttf') format('truetype');
+    font-weight: 200 700;
     font-display: swap;
   }
 
@@ -21,16 +25,20 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto';
     src: local('Roboto Variable'),
          local('Roboto-Variable'),
-         local('Roboto');
+         local('Roboto'),
+         url('/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: 100 900;
     font-display: swap;
   }
 
   :root {
-    --background-color: #eaf4ff;
+    --background-color: #f5f8ff;
     --white: #ffffff;
     --grey: #919795;
     --theme-dark-blue: #125bfb;
-    --theme-font-color: #333;
+    --theme-font-color: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
 
 
     --heading-font-size: 4rem;
@@ -53,11 +61,12 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: var(--background-color);
+    color: var(--theme-font-color);
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
-      scroll-behavior: smooth;
   }
+  html { scroll-behavior: smooth; }
   ::-webkit-scrollbar {
     display: none;
   }

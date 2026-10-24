@@ -1,69 +1,101 @@
 import styled from "styled-components";
 
-export const ToolsCardBody = styled.div<{ color: string }>`
-  border: 1px solid rgb(229, 231, 235);
-  width: 20.5rem;
-  height: 6.5rem;
-  background-color: var(--white);
-  border-radius: 4px;
-  box-shadow:
-    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-    rgba(0, 0, 0, 0) 0px 0px 0p;
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  align-items: start;
-  cursor: pointer;
-  border-bottom-color: ${({ color }) => color};
-  border-bottom-width: 2px;
-  cursor: pointer;
-  &:hover {
-    transform: translateY(-2px);
-    transition: transform 0.1s;
-    background-color: ${({ color }) => `${color}26`};
-    box-shadow:
-      rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  }
-  @media (max-width: 450px) {
-    max-height: fit-content;
-    padding: 0.5rem;
-    width: 18rem;
-    
-  }
-`;
-export const ToolsCardIcon = styled.img`
-  width: 2rem;
-  aspect-ratio: 1/1;
-
-  @media (max-width: 450px) {
-    width: 1.5rem;
-  }
-`;
-export const ToolsCardContentWrapper = styled.div`
+export const ToolsCardBody = styled.button<{ color: string }>`
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.125rem;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+  &::after {
+    content: "→";
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font: 600 1.25rem "Manrope";
+    color: ${({ color }) => color};
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: 0.2s;
+  }
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-4px);
+    border-color: ${({ color }) => `${color}66`};
+    box-shadow: 0 16px 32px -12px ${({ color }) => `${color}55`};
+  }
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: 1;
+    transform: none;
+  }
+  &:focus-visible {
+    outline: 3px solid ${({ color }) => `${color}66`};
+    outline-offset: 2px;
+  }
+  @media (max-width: 450px) {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    &::after {
+      display: none;
+    }
+  }
 `;
-export const ToolsCardTitle = styled.p`
-  font: 600 var(--tools-card-title-font-size) "Roboto";
-  line-height: 1.5;
+export const ToolsCardIconTile = styled.span<{ color: string }>`
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: ${({ color }) => `${color}1f`};
 `;
-export const ToolsCardDescription = styled.p`
-  font: 400 14px "Manrope";
-  color: #808080;
-  line-height: 20px;
-  letter-spacing: 0.25px;
+export const ToolsCardIcon = styled.img`
+  width: 1.75rem;
+  aspect-ratio: 1/1;
+`;
+export const ToolsCardContentWrapper = styled.span`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+`;
+export const ToolsCardTitle = styled.span`
+  font: 700 1.125rem / 1.4 "Manrope";
+  color: var(--theme-font-color);
+`;
+export const ToolsCardDescription = styled.span`
+  font: 400 0.9375rem / 1.5 "Manrope";
+  color: var(--muted);
 `;
 
 export const ToolHeader = styled.h1`
-  font: 700 var(--tool-header-font-size) "Roboto";
-  line-height: 2.5rem;
+  font: 700 clamp(1.875rem, 4vw, 2.75rem) / 1.2 "StackSans";
+  letter-spacing: -0.02em;
   text-align: center;
-  padding: 0.5rem;
-  margin: 2rem auto 0;
-
+  margin: 3.5rem auto 0;
   @media (max-width: 450px) {
-    margin: 1rem auto 0;
-}
+    margin: 2rem auto 0;
+  }
+`;
+
+export const ToolSubtitle = styled.p`
+  font: 400 1.0625rem / 1.6 "Manrope";
+  color: var(--muted);
+  text-align: center;
+  max-width: 34rem;
+  margin: 0.75rem auto 0;
+  @media (max-width: 450px) {
+    font-size: 0.9375rem;
+  }
 `;

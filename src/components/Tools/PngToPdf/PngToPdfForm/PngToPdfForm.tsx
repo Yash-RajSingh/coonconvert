@@ -48,7 +48,7 @@ const PngToPdfForm = ({ filesCount, formState, setFormState, files, onError }: P
   return (
     <>
       <p className="uploaded-files-count">
-        <span>Convert to PDF -</span> {filesCount} file{filesCount > 1 ? 's' : ''}
+        <span>Convert to PDF</span> {filesCount} file{filesCount > 1 ? 's' : ''}
       </p>
 
       <FormSection>

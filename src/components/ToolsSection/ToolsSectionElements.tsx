@@ -1,22 +1,39 @@
 import styled from "styled-components";
 
-export const ToolsSectionContainer = styled.div`
-  width: 100%;
-  height: 100%;
+export const ToolsSectionContainer = styled.section`
+  padding-top: 5rem;
+  scroll-margin-top: 4rem;
 `;
-export const ToolsSectionHeader = styled.p`
+
+export const SectionEyebrow = styled.p`
   text-align: center;
-  font: 700 var(--heading-font-size) "StackSans";
+  font: 700 0.8125rem "Manrope";
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--theme-dark-blue);
+  margin-bottom: 0.75rem;
+`;
+
+export const ToolsSectionHeader = styled.h2`
+  text-align: center;
+  font: 700 clamp(1.875rem, 3.5vw, 2.75rem) / 1.2 "StackSans";
+  letter-spacing: -0.02em;
   & span {
     color: var(--theme-dark-blue);
   }
 `;
 
+export const SectionSubtitle = styled.p`
+  text-align: center;
+  font: 400 1.0625rem / 1.6 "Manrope";
+  color: var(--muted);
+  max-width: 36rem;
+  margin: 0.75rem auto 0;
+`;
+
 export const ToolsSectionWrapper = styled.div`
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: 1.25rem;
   margin-top: 3rem;
-  align-items: stretch;
 `;

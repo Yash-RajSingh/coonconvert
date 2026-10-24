@@ -8,6 +8,7 @@ import {
   CloseIcon,
   UploadedFileCard,
   UploadedFilesWrapper,
+  ToolActionBar,
   UploadedFileCardWrapper,
   PdfOperationButton,
 } from "../common";
@@ -73,13 +74,15 @@ const PdfToPng = () => {
           </UploadedFileCardWrapper>
         ))}
       </UploadedFilesWrapper>
-      <PdfOperationButton
-        onClick={handleConvert}
-        $theme={toolTheme}
-        disabled={files.length === 0 || isLoading}
-      >
-        {isLoading ? "Converting..." : "Convert to PNG"}
-      </PdfOperationButton>
+      <ToolActionBar>
+        <PdfOperationButton
+          onClick={handleConvert}
+          $theme={toolTheme}
+          disabled={files.length === 0 || isLoading}
+        >
+          {isLoading ? "Converting..." : "Convert to PNG"}
+        </PdfOperationButton>
+      </ToolActionBar>
     </>
   );
 };
