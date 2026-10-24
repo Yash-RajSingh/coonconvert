@@ -5,12 +5,12 @@ import {
   ComingSoonBadge,
   BackLink,
 } from "./ComingSoonElements";
-import ToBeReleasedImage from "@assets/toBeReleased.png";
+import ToBeReleasedImage from "@assets/toBeReleased.webp";
 const ComingSoon = () => {
   return (
     <ComingSoonWrapper>
       <ComingSoonBadge>Coming soon</ComingSoonBadge>
-      <PlaceholderImage src={ToBeReleasedImage} alt="" />
+      <PlaceholderImage src={ToBeReleasedImage} alt="" width={576} height={576} />
       <Message>
         We are still building this tool. Check back soon.
       </Message>

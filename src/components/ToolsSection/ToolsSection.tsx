@@ -6,10 +6,7 @@ import {
   ToolsSectionWrapper,
 } from "./ToolsSectionElements";
 import { tools } from "@/data/tools";
-import { lazy, Suspense } from "react";
-import SkeletonLoader from "@components/SkeletonLoader/SkeletonLoader";
-
-const ToolsCard = lazy(() => import("./ToolsCard/ToolsCard"));
+import ToolsCard from "./ToolsCard/ToolsCard";
 const ToolsSection = () => {
   return (
     <ToolsSectionContainer id="tools">
@@ -23,12 +20,7 @@ const ToolsSection = () => {
       </SectionSubtitle>
       <ToolsSectionWrapper>
         {tools?.map((item) => (
-          <Suspense
-            key={item?.id}
-            fallback={<SkeletonLoader width="100%" height="9rem" />}
-          >
-            <ToolsCard info={item} />
-          </Suspense>
+          <ToolsCard key={item?.id} info={item} />
         ))}
       </ToolsSectionWrapper>
     </ToolsSectionContainer>

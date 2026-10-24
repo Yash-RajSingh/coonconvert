@@ -18,6 +18,10 @@ export const LandingContainer = styled.section`
   @media (max-width: 900px) {
     padding: 3rem 0 2rem;
   }
+  @media (max-width: 450px) {
+    min-height: auto;
+    padding: 4rem 0 1rem;
+  }
 `;
 
 export const LandingWrapper = styled.div`
@@ -29,6 +33,9 @@ export const LandingWrapper = styled.div`
     grid-template-columns: 1fr;
     text-align: center;
   }
+  @media (max-width: 450px) {
+    gap: 2rem;
+  }
 `;
 
 export const LandingContent = styled.div`
@@ -38,9 +45,12 @@ export const LandingContent = styled.div`
   @media (max-width: 900px) {
     align-items: center;
   }
+  @media (max-width: 450px) {
+    gap: 1.25rem;
+  }
 `;
 
-export const LandingContentTitle = styled.h2`
+export const LandingContentTitle = styled.h1`
   font: 700 clamp(2.25rem, 5vw, 4rem) / 1.1 "StackSans";
   letter-spacing: -0.02em;
 `;
@@ -65,6 +75,9 @@ export const LandingActions = styled.div`
   @media (max-width: 900px) {
     justify-content: center;
   }
+  @media (max-width: 450px) {
+    gap: 0.5rem;
+  }
 `;
 
 const Button = styled.a`
@@ -81,6 +94,11 @@ const Button = styled.a`
   &:focus-visible {
     outline: 3px solid #125bfb55;
     outline-offset: 2px;
+  }
+  @media (max-width: 450px) {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 0.625rem;
   }
 `;
 
@@ -111,12 +129,21 @@ export const TrustList = styled.ul`
   @media (max-width: 900px) {
     justify-content: center;
   }
+  @media (max-width: 450px) {
+    gap: 0.25rem 0.875rem;
+    font-size: 0.8125rem;
+  }
 `;
 
 export const LandingImageWrapper = styled.div`
   @media (max-width: 900px) {
     max-width: 28rem;
     margin: 0 auto;
+  }
+  @media (max-width: 450px) {
+    max-width: 17rem;
+    /* image above the text on phones */
+    order: -1;
   }
 `;
 

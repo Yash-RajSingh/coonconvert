@@ -42,8 +42,8 @@ const Landing = () => {
           <LandingImage
             src={HeroImage}
             alt="Files being converted to and from PDF"
-            width={800}
-            height={600}
+            width={1200}
+            height={800}
             loading="eager"
             decoding="sync"
             fetchPriority="high"

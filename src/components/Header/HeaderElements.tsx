@@ -23,16 +23,17 @@ export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  h1 {
+  span {
     font-size: var(--tools-card-title-font-size);
-    font-family: "Roboto";
+    font-family: "Manrope";
+    font-weight: 700;
   }
 
   @media (max-width: 450px) {
     justify-content: center;
     padding: 0.5rem 0rem;
 
-    h1 {
+    span {
       font-size: 1.25rem;
     }
   }

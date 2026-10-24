@@ -17,7 +17,7 @@ const FeatureItem = ({ icon, title, description }: FeatureItemProps) => {
   return (
     <FeatureItemBody>
       <FeatureHeader>
-        <FeatureItemIcon src={icon} alt={title} />
+        <FeatureItemIcon src={icon} alt="" width={56} height={56} />
         <FeatureItemTitle>{title}</FeatureItemTitle>
       </FeatureHeader>
       <FeatureItemDescription>{description}</FeatureItemDescription>

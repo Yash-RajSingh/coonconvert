@@ -1,19 +1,17 @@
+import type { tools } from "@/data/tools";
 import {
   ToolsCardBody,
   ToolsCardTitle,
   ToolsCardDescription,
   ToolsCardContentWrapper,
   ToolsCardIconTile,
+  ToolsCardIcon,
 } from "./ToolsCardElements";
 import toolActivate from "@/hooks/toolActivate.ts";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "@/store/hooks";
-import { lazy, Suspense } from "react";
-import SkeletonLoader from "@components/SkeletonLoader/SkeletonLoader";
 
-const ToolsCardIcon = lazy(() => import("./ToolsCardIconComponent"));
-
-const ToolsCard = ({ info }: { info: any }) => {
+const ToolsCard = ({ info }: { info: (typeof tools)[number] }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -26,9 +24,7 @@ const ToolsCard = ({ info }: { info: any }) => {
       }
     >
       <ToolsCardIconTile color={info?.color}>
-        <Suspense fallback={<SkeletonLoader width="1.75rem" height="1.75rem" />}>
-          <ToolsCardIcon src={info?.icon} alt="" />
-        </Suspense>
+        <ToolsCardIcon src={info?.icon} alt="" width={28} height={28} />
       </ToolsCardIconTile>
       <ToolsCardContentWrapper>
         <ToolsCardTitle>{info?.name}</ToolsCardTitle>

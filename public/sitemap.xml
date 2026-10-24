@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Coming-soon tools (compress, edit, protect) are left out until they work. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://coonconvert.netlify.app/</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://coonconvert.netlify.app/tools/merge-pdf</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://coonconvert.netlify.app/tools/split-pdf</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://coonconvert.netlify.app/tools/png-to-pdf</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://coonconvert.netlify.app/tools/pdf-to-png</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://coonconvert.netlify.app/privacy</loc><lastmod>2026-10-24</lastmod></url>
+</urlset>

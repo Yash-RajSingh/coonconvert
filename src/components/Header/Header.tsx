@@ -11,7 +11,7 @@ const Header = () => {
       <HeaderWrapper>
         <HeaderBrand href="/">
           <HeaderLogo src={Logo} alt="" />
-          <h1>CoonConvert</h1>
+          <span>CoonConvert</span>
         </HeaderBrand>
       </HeaderWrapper>
     </HeaderContainer>

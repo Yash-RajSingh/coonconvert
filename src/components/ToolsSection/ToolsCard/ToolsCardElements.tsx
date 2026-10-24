@@ -46,7 +46,8 @@ export const ToolsCardBody = styled.button<{ color: string }>`
   @media (max-width: 450px) {
     flex-direction: row;
     align-items: center;
-    padding: 1rem;
+    gap: 0.875rem;
+    padding: 0.875rem 1rem;
     &::after {
       display: none;
     }
@@ -60,10 +61,18 @@ export const ToolsCardIconTile = styled.span<{ color: string }>`
   height: 3rem;
   border-radius: 0.75rem;
   background: ${({ color }) => `${color}1f`};
+  @media (max-width: 450px) {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.625rem;
+  }
 `;
 export const ToolsCardIcon = styled.img`
   width: 1.75rem;
   aspect-ratio: 1/1;
+  @media (max-width: 450px) {
+    width: 1.25rem;
+  }
 `;
 export const ToolsCardContentWrapper = styled.span`
   display: flex;
@@ -73,10 +82,16 @@ export const ToolsCardContentWrapper = styled.span`
 export const ToolsCardTitle = styled.span`
   font: 700 1.125rem / 1.4 "Manrope";
   color: var(--theme-font-color);
+  @media (max-width: 450px) {
+    font-size: 0.9375rem;
+  }
 `;
 export const ToolsCardDescription = styled.span`
   font: 400 0.9375rem / 1.5 "Manrope";
   color: var(--muted);
+  @media (max-width: 450px) {
+    font-size: 0.8125rem;
+  }
 `;
 
 export const ToolHeader = styled.h1`

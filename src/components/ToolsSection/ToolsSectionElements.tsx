@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ToolsSectionContainer = styled.section`
-  padding-top: 5rem;
+  padding-top: 10rem;
   scroll-margin-top: 4rem;
 `;
 
@@ -29,6 +29,9 @@ export const SectionSubtitle = styled.p`
   color: var(--muted);
   max-width: 36rem;
   margin: 0.75rem auto 0;
+  @media (max-width: 450px) {
+    font-size: 0.9375rem;
+  }
 `;
 
 export const ToolsSectionWrapper = styled.div`
@@ -36,4 +39,8 @@ export const ToolsSectionWrapper = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
   gap: 1.25rem;
   margin-top: 3rem;
+  @media (max-width: 450px) {
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
 `;

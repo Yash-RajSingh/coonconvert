@@ -21,15 +21,6 @@ const GlobalStyles = createGlobalStyle`
     font-display: swap;
   }
 
-  @font-face {
-    font-family: 'Roboto';
-    src: local('Roboto Variable'),
-         local('Roboto-Variable'),
-         local('Roboto'),
-         url('/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
-    font-weight: 100 900;
-    font-display: swap;
-  }
 
   :root {
     --background-color: #f5f8ff;
@@ -62,7 +53,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     background-color: var(--background-color);
     color: var(--theme-font-color);
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
   }

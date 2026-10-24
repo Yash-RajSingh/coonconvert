@@ -35,7 +35,8 @@ export const FileUploaderWrapper = styled.div<{ $theme?: string }>`
     background: ${(props) => `${props.$theme || "#125bfb"}1a`};
   }
   @media (max-width: 450px) {
-    min-height: 220px;
+    min-height: 200px;
+    padding: 1.5rem 0.75rem;
   }
 `;
 
@@ -68,8 +69,9 @@ export const FileUploaderLabel = styled.label<{ $theme?: string }>`
   font: 600 1rem "Manrope";
   box-shadow: 0 8px 20px -8px ${(props) => props.$theme || "#125bfb"};
   @media (max-width: 450px) {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.9375rem;
+    padding: 0.625rem 1.125rem;
+    font-size: 0.875rem;
+    border-radius: 0.625rem;
   }
 `;
 

@@ -2,16 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/coonconvert.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CoonConvert</title>
+    <link rel="icon" type="image/svg+xml" href="/coonconvert.svg" />
+    <meta name="theme-color" content="#125bfb" />
+    <!-- Title, description and canonical are set per page by PageMeta. -->
+
+    <!-- Share previews (Facebook, LinkedIn, WhatsApp, X, Slack...) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CoonConvert" />
+    <meta property="og:title" content="CoonConvert – Free Online PDF Tools" />
+    <meta
+      property="og:description"
+      content="Merge, split and convert PDFs right in your browser. No uploads, no sign-up, free."
+    />
+    <meta property="og:url" content="https://coonconvert.netlify.app/" />
+    <meta property="og:image" content="https://coonconvert.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CoonConvert – free online PDF tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CoonConvert",
+        "url": "https://coonconvert.netlify.app/",
+        "description": "Free online PDF tools that run in your browser: merge, split and convert PDF and PNG files without uploading them.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": ["Merge PDF", "Split PDF", "PNG to PDF", "PDF to PNG"]
+      }
+    </script>
+
     <link rel="preload" href="/fonts/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="preload" href="/fonts/StackSansNotch-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="preload" href="/fonts/Roboto-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="preload" as="image" href="/assets/hero.webp" fetchpriority="high" />
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      CoonConvert offers free online PDF tools: merge, split and convert PDF
+      and PNG files in your browser. Please enable JavaScript to use them.
+    </noscript>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

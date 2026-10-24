@@ -10,6 +10,11 @@ export const UploadedFilesWrapper = styled.div`
   &:empty {
     display: none;
   }
+  @media (max-width: 450px) {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.625rem;
+  }
 `;
 
 export const UploadedFileCardWrapper = styled.div<{
@@ -26,7 +31,7 @@ export const UploadedFileCardWrapper = styled.div<{
   transform: ${(props) => (props.$isDragOver ? "scale(1.04)" : "none")};
   transition: all 0.2s ease;
   @media (max-width: 450px) {
-    width: 6.5rem;
+    width: auto;
   }
 `;
 export const UploadedFileCard = styled.li<{ $theme?: string }>`
@@ -148,8 +153,9 @@ export const PdfOperationButton = styled.button<{
     cursor: not-allowed;
   }
   @media (max-width: 450px) {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.9375rem;
+    padding: 0.5625rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 0.625rem;
   }
 `;
 
